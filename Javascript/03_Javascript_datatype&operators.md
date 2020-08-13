@@ -5,7 +5,7 @@
 ## 1. 자바스크립트 기본 타입
 
 - **number, string, boolean** 을 비롯해 **null** 과 **undefined** 라는 타입이 있다. 그 자체가 하나의 값을 나타낸다는 것이다.
-- 자바스크립트는 **느슨한 타입 체크 언어** 이다.
+- 자바스크립트는 **느슨한 타입 체크 언어**이다.
 - var라는 한 가지 키워드로만 변수를 선언한다. 이렇게 선언된 변수에는 어떤 타입의 데이터라도 저장하는 것이 가능하다.  
   (현재에는 var을 사용하지 않는다. let과 const가 이를 대체한다. [var를 사용할 때 발생하는 문제들](https://www.daleseo.com/js-var-issues/))
 
@@ -15,7 +15,7 @@ var intNum = 10;
 var floatNum = 0.1; // number
 
 // 문자열 타입
-var singleQuoteStr = "single quote string";
+var singleQuoteStr = 'single quote string';
 var doubleQuoteStr = "double quote string";
 var singleChar = "a"; // string
 
@@ -306,8 +306,8 @@ console.dir(foo); // 02
 ```
 
 - **foo 객체의 프로토타입**에 toString() 메서드가 이미 정의되어 있고, foo 객체가 상속처럼 toString() 메서드를 호출해서 에러가 없다.
-- 개발자 도구에서 객체를 출력해보면 ***proto*프로퍼티**가 있는데 이 프로퍼티가 **프로토타입 객체**를 가리킨다.
+- 개발자 도구에서 객체를 출력해보면 **_proto_프로퍼티**가 있는데 이 프로퍼티가 **프로토타입 객체**를 가리킨다.
 
-자바스크립트의 **모든 객체는 자신의 프로토타입을 가리키는 [[Prototype]]라는 숨겨진 프로퍼티**를 가진다. 크롬 브라우저에서는 *proto*를 의미한다. 모든 객체의 프로토타입은 자바스크립트의 룰에 따라 객체를 생성할 때 결정된다. 우선은 객체 리터럴 방식으로 생성된 객체의 경우 **Object.prototype 객체**가 프로토타입 객체가 된다는 것만 기억하고 넘어가자.
+자바스크립트의 **모든 객체는 자신의 프로토타입을 가리키는 [[Prototype]]라는 숨겨진 프로퍼티**를 가진다. 크롬 브라우저에서는 _ proto _ 를 의미한다. 모든 객체의 프로토타입은 자바스크립트의 룰에 따라 객체를 생성할 때 결정된다. 우선은 객체 리터럴 방식으로 생성된 객체의 경우 **Object.prototype 객체**가 프로토타입 객체가 된다는 것만 기억하고 넘어가자.
 
 참고로 _proto_ 프로퍼티가 가리키는 객체가 바로 Object.Prototype 이며, toString(), valueOf() 등과 같은 모든 객체에서 호출 가능한 자바스크립트 기본 내장 메서드가 포함되어 있다. 그 결과 foo 객체는 foo.toString()과 같이 자신의 프로토타입인 Object.prototype 객체에 포함된 다양한 메서드를 마치 자신의 프로퍼티인 것처럼 상속받아 사용할 수 있다.
