@@ -168,3 +168,84 @@ arr.splice(2, 1); // 2번째 요소를 시작점으로 1개의 원소를 삭제�
 console.log(arr); // [0, 1, 3]
 console.log(arr.length); // 3
 ```
+
+## 5-8. Array() 생성자 함수
+
+배열은 일반적으로 배열 리터럴로 생성하지만, **Array() 생성자 함수**를 단순화시킨 것이다. 생성자 함수로 배열과 같은 객체를 생성할 때는 반드시 new 연산자를 같이 써야 한다. Array() 생성자 함수는 호출할 때 인자 개수에 따라 동작이 다르므로 주의해야 한다.
+
+- 호출할 때 인자가 1개이고, 숫자일 경우 : 호출된 인자를 length로 갖는 빈 배열 생성
+- 그 외의 경우 : 호출된 인자를 요소로 갖는 배열 생성
+
+```javascript
+var foo = new Array(3);
+console.log(foo); // [undefined * 3]
+console.log(foo.length); // 3
+
+var bar = new Array(1, 2, 3);
+console.log(bar); // [1, 2, 3]
+console.log(bar.length); // 3
+```
+
+## 5.9 유사 배열 객체
+
+자바스크립트에서 length 프로퍼티를 가진 일반 객체를 **유사 배열 객체**라고 부른다. 유사 배열 객체의 특징은 객체임에도 불구하고, 표준 배열 메서드를 사용하는 게 가능하다는 것이다.
+유사 배열 객체의 경우 **[apply() 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)**를 사용하면 객체지만 표준 배열 메서드를 활용하는 것이 가능하다.
+
+```javascript
+var arr = ["bar"];
+var obj = { name: "foo", length: 1 };
+
+arr.push("baz");
+console.log(arr); // ['bar', 'baz']
+
+Array.prototype.push.apply(obj, ["baz"]);
+console.log(obj); // { '1': 'baz', name: 'foo', length: 2 }
+```
+
+# 6. 기본 타입과 표준 메서드
+
+자바스크립트는 숫자, 문자열, 불린값에 대해 각 타입별로 호출 가능한 표준 메서드를 정의하고 있다. 기본 타입의 값들에 대해서 객체 형태로 메서드를 호출할 경우, 기본값은 메서드 처리 순간에 객체로 변환된 다음 각 타입별 표준 메서드를 호출하게 된다. 메서드 호출이 끝나면 기본값으로 복귀하게 된다.
+
+```javascript
+// 숫자 메서드 호출
+var num = 0.5;
+console.log(num.toExponential(1)); // '5.0e-1'
+
+// 문자열 메서드 호출
+console.log("test".charAt(2)); // 's'
+```
+
+**[toExponential()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)**는 표준 숫자형 메서드로서, 숫자를 지수 형태의 문자열로 반환한다. 표준 문자열 메서드 **[charAt()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)**은 문자열에서 인자로 받은 위치에 있는 문자를 반환한다. 숫자와 문자열 등은 기본 타입이지만, 이들을 위해 정의된 표준 메서드들을 **객체처럼 호출할 수 있다**는 것을 기억하자.
+
+# 7. 연산자
+
+자바스크립트 연산자의 대부분은 다른 언어와 유사하다.
+
+## 7-1. + 연산자
+
++연산자는 **더하기 연산**과 **문자열 연결 연산**을 수행한다.
+
+```javascript
+var add1 = 1 + 2; // 3
+var add2 = "my" + "string"; // my string
+var add3 = 1 + "string"; // 1string
+```
+
+## 7-2. typeof 연산자
+
+typeof 연산자는 피연산자의 타입을 문자열 형태로 리턴한다. null과 배열은 object, 함수는 function이라는 점에 유의한다.
+
+## 7-3. == (동등) 연산자와 === (일치) 연산자
+
+- == 연산자는 비교하려는 피연산자의 타입이 다를 경우에 타입 변환을 거친 다음 비교한다.
+- === 연산자는 피연산자의 타입이 다를 경우에 타입을 변경하지 않고 비교한다.
+
+```javascript
+console.log(1 == "1"); // true
+console.log(1 === "1"); // false
+```
+
+## 7.4 !! 연산자
+
+- !! 연산자는 피연산자를 불린값으로 변환하는 데 사용한다.
+- 객체는 값이 비어있는 빈 객체라도 true로 변환되는 것을 주의해야 한다.
