@@ -4,6 +4,6 @@
 - 이해한 만큼 직접 작성
 
 ## JAVASCRIPT
-- [01. 자바스크립트 개요](./javascript/01_Javascript_Summary.md)
-- [03-1. 자바스크립트 데이터 타입과 연산자](./javascript/03_Javascript_datatype&operators_1.md)
-- [03-2. 자바스크립트 데이터 타입과 연산자](./javascript/03_Javascript_datatype&operators_2.md)
+- [01. 자바스크립트 개요](./Javascript/01_Javascript_Summary.md)
+- [03-1. 자바스크립트 데이터 타입과 연산자](./Javascript/03_Javascript_datatype&operators_1.md)
+- [03-2. 자바스크립트 데이터 타입과 연산자](./Javascript/03_Javascript_datatype&operators_2.md)
