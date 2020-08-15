@@ -166,3 +166,66 @@ obj.baz = function () {
 };
 console.log(obj.baz()); // 200
 ```
+
+### 2-2-2. 함수 인자로 전달
+
+함수는 다른 함수의 인자로도 전달이 가능하다.
+
+```javascript
+// 함수 표현식으로 foo() 함수 생성
+var foo = function (func) {
+  func(); // 인자로 받은 func() 함수 호출
+};
+
+// foo() 함수 실행
+foo(function () {
+  console.log("argument"); // argument
+});
+```
+
+### 2-2-3. 리턴값으로 활용
+
+함수는 다른 함수의 리턴값으로 활용할 수 있다.
+
+```javascript
+// 함수를 리턴하는 foo() 함수 정의
+var foo = function () {
+  return function () {
+    console.log("return value");
+  };
+};
+
+var bar = foo();
+bar(); // return value
+```
+
+## 2-3. 함수 객체의 기본 프로퍼티
+
+- 함수는 일반적인 객체의 기능에 추가로 호출됐을 때 정의된 코드를 실행하는 기능을 가지고 있다.
+- 일반 객체와는 다르게 추가로 **함수 객체만의 표준 프로퍼티**가 정의되어 있다.
+- ECMA5 스크립트 명세서에는 모든 함수가 **length**와 **prototype 프로퍼티**를 가져야 한다고 기술하고 있다.
+- **name 프로퍼티**는 함수의 이름을 나타낸다.
+- **caller 프로퍼티**는 자신을 호출한 함수를 나타낸다.
+- **arguments 프로퍼티**는 함수를 호출할 때 전달된 인자값을 나타낸다.
+- 함수 객체의 부모 역할을 하는 프로토타입 객체를 **Function.prototype 객체**라고 하며, **함수 객체**라고 정의하고 있다.
+
+### 2-3-1. length 프로퍼티
+
+함수 객체의 **length 프로퍼티**는 모든 함수가 가져야 하는 표준 프로퍼티로서, 함수가 정상적으로 실행될 때 기대되는 인자의 개수를 나타낸다.
+
+```javascript
+function func0() {}
+function func1(x) {
+  return x;
+}
+function func2(x, y) {
+  return x + y;
+}
+function func3(x, y, z) {
+  return x + y + z;
+}
+console.log("func0.length - " + func0.length); // func0.length - 0
+console.log("func1.length - " + func1.length); // func0.length - 1
+console.log("func2.length - " + func2.length); // func0.length - 2
+console.log("func3.length - " + func3.length); // func0.length - 3
+```
