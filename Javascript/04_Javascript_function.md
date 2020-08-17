@@ -229,3 +229,149 @@ console.log("func1.length - " + func1.length); // func0.length - 1
 console.log("func2.length - " + func2.length); // func0.length - 2
 console.log("func3.length - " + func3.length); // func0.length - 3
 ```
+
+### 2-3-2. prototype 프로퍼티
+
+모든 함수는 객체로서 **prototype 프로퍼티**를 가지고 있는데 모든 객체의 부모를 나타내는 [[Prototype]]과 혼동하면 안된다. prototype 프로퍼티는 함수가 생성될 때 만들어지며 **constructor 프로퍼티** 하나만 있는 객체를 가리킨다. 즉, 자바스크립트에서는 함수를 생성할 때, 함수 자신과 연결된 프로토타입 객체를 동시에 생성하며, 이 둘은 각각 prototype과 constructor라는 프로퍼티로 서로를 참조하게 된다.
+
+```javascript
+function myFunction() {
+  return true;
+}
+
+console.dir(myFunction.prototype);
+console.dir(myFunction.prototype.constructor);
+```
+
+실행결과를 보면 myFunction.prototype 객체는 **constructor**와 \***\*proto\*\***라는 두 개의 프로퍼티가 있다. 이렇듯 **함수 객체**와 **프로토타입 객체**는 서로 밀접하게 연결돼 있다. 프로토타입과 프로토타입 체이닝을 이해하는 기본 지식인 만큼 잘 숙지해야한다.
+
+## 3. 함수의 다양한 형태
+
+### 3-1. 콜백 함수
+
+자바스크립트 함수 표현식에서 **함수 이름**은 꼭 붙이지 않아도 되는 선택 사항이다. 이러한 익명 함수의 대표적인 용도가 **콜백 함수**이다. 콜백 함수는 코드를 통해 명시적으로 호출하는 함수가 아니라, 개발자는 단지 함수를 등록하기만 하고, 어떤 이벤트가 발생했거나 특정 시점에 도달했을 때 시스템에서 호출되는 함수를 말한다. 또한, 특정 함수의 인자로 넘겨서, 코드 내부에서 호출되는 함수 또한 콜백 함수가 될 수 있다. 대표적인 콜백 함수의 예가 이벤트 핸들러 처리이다.
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      // 페이지 로드 시 호출될 콜백 함수
+      window.onload = function () {
+        alert("Callback Function");
+      };
+    </script>
+  </body>
+</html>
+```
+
+window.onload는 이벤트 핸들러로서, 웹 페이지의 로딩이 끝나는 시점에 load 이벤트가 발생하면 실행된다.
+
+## 3-2. 즉시 실행 함수
+
+함수를 정의함과 동시에 바로 실행하는 함수를 **즉시 실행 함수**라고 한다.
+
+```javascript
+(function (name) {
+  console.log("Immediate function -> " + name);
+})("foo"); // Immediate function -> foo
+```
+
+즉시 실행 함수를 만드는 방법은 간단하다. 함수 리터럴을 ()로 둘러싸고 함수가 바로 호출될 수 있게 () 괄호 쌍을 추가한다. 이때 괄호 안에 값을 추가해 즉시 실행 함수의 인자로 넘길 수가 있다. 이렇게 함수가 선언되자마자 실행되게 만든 즉시 실행 함수의 경우, 같은 함수를 다시 호출할 수 없다. **최초 한 번의 실행만을 필요로 하는 초기화 코드 부분**등에 사용할 수 있다. jQuery와 같은 라이브러리나, 프레임워크 소스들에서 사용된다. jQuery에서 사용하는 이유는 자바스크립트의 변수 유효 범위 특성 때문인데, 자바스크립트에서는 **[함수 유효 범위](https://www.opentutorials.org/course/743/6495)**를 지원한다. 기본적으로 변수를 선언할 경우 프로그램 전체에서 접근할 수 있는 전역 유효 범위를 가진다. 그러나 함수 내부에서 정의된 매개변수와 변수들은 함수 코드 내부에서만 유효할 뿐 함수 밖에서는 유효하지 않다. 함수 외부의 코드에서 함수 내부의 변수를 액세스하는 게 불가능하다는 것이다. 따라서 즉시 실행 함수 내에 라이브러리 코드를 추가하면 전역 네임스페이스를 더럽히지 않으므로, 이후 다른 라이브러리들이 동시에 로드가 되더라도 변수 이름 충돌 같은 문제를 방지할 수 있다.
+
+## 3-3. 내부 함수
+
+자바스크립트에서는 함수 코드 내부에서 함수 정의가 가능하다. 이것을 **내부 함수**라고 부른다. 내부 함수는 자바스크립트의 기능을 보다 강력하게 해주는 클로저를 생성하거나 부모 함수 코드에서 외부에서의 접근을 막고 독립적인 헬퍼 함수를 구현하는 용도 등으로 사용한다.
+
+```javascript
+function parent() {
+  var a = 100;
+  var b = 200;
+  function child() {
+    var b = 300;
+    console.log(a); // 100
+    console.log(b); // 300
+  }
+  child(); // Uncaught RefrenceError : child is not defined
+}
+```
+
+- 내부 함수에서는 자신을 둘러싼 부모 함수의 변수에 접근이 가능하다. 이것이 가능한 이유는 **[스코프 체이닝](https://velog.io/@bathingape/%EC%8A%A4%EC%BD%94%ED%94%84Scope%EC%99%80-%ED%81%B4%EB%A1%9C%EC%A0%80Closure-%EC%9D%B4%ED%95%B4)** 때문이다.
+- 내부 함수는 일반적으로 자신이 정의된 부모 함수 내부에서만 호출이 가능하다.
+- 하지만 함수 외부에서도 특정 함수 스코프 안에 선언된 내부 함수를 호출할 수 있다.
+
+```javascript
+function parent() {
+  var a = 100;
+  var child = function () {
+    console.log(a);
+  };
+}
+return child;
+
+var inner = parent();
+inner(); // 100
+```
+
+이와 같이 실행이 끝난 parent()와 같은 부모 함수 스코프의 변수를 참조하는 inner()와 같은 함수를 **[클로저](https://velog.io/@bathingape/%EC%8A%A4%EC%BD%94%ED%94%84Scope%EC%99%80-%ED%81%B4%EB%A1%9C%EC%A0%80Closure-%EC%9D%B4%ED%95%B4)**라고 한다.
+
+## 3-4. 함수를 리턴하는 함수
+
+함수를 호출함과 동시에 다른 함수로 바꾸거나, 자기 자신을 재정의하는 함수를 구현할 수 있다.
+
+```javascript
+var self = function () {
+  console.log("a");
+  return function () {
+    console.log("b");
+  };
+};
+self = self(); // a
+self(); // b
+```
+
+# 4. 함수 호출과 this
+
+## 4-1. arguments 객체
+
+자바스크립트에서는 함수를 호출할 때 함수 형식에 맞춰 인자를 넘기지 않더라도 에러가 발생하지 않는다. 이러한 특성 때문에 함수 코드를 작성할 때, 런타임 시에 호출된 인자의 개수를 확인하고 이에 따라 동작을 다르게 해줘야 할 경우가 있다. 이를 가능케 하는 게 **arguments 객체**다. 자바스크립트에서는 함수를 호출할 때 인수들과 함께 arguments 객체가 함수 내부로 전달된다. arguments 객체는 함수를 호출할 때 넘긴 인자들이 **유사 배열 형태로 저장된 객체**이다. 매개변수 개수가 정확하게 정해지지 않은 함수를 구현하거나, 전달된 인자의 개수에 따라 서로 다른 처리를 해줘야 하는 함수를 개발하는 데 유용하게 사용할 수 있다.
+
+```javascript
+function sum() {
+  var result = 0;
+
+  for (var i = 0; i < arguments.length; i++) {
+    result += arguments[i];
+  }
+  return result;
+}
+
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3, 4, 5, 6)); // 21
+```
+
+## 4-2. 호출 패턴과 this 바인딩
+
+자바스크립트에서 함수를 호출할 때 arguments 객체 및 **this 인자**가 함수 내부로 전달된다. this는 핵심 개념이면서 이해하기 어려운데, **함수가 호출되는 방식**에 따라 this가 다른 **객체를 참조(this 바인딩)** 때문이다.
+
+### 4-2-1. 객체의 메서드 호출할 때 this 바인딩
+
+객체의 프로퍼티가 함수일 경우, 이 함수를 메서드라고 부른다. 메서드를 호출할 때, 메서드 내부 코드에서 사용된 this는 **해당 메서드를 호출한 객체로 바인딩**된다.
+
+```javascript
+var myObj = {
+  name: "foo",
+  sayName: function () {
+    console.log(this.name);
+  },
+};
+
+var otherObj = {
+  name: "bar",
+};
+
+otherObj.sayName = myObj.sayName;
+
+myObj.sayName(); // foo
+otherObj.sayName(); // bar
+```
