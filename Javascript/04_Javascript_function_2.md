@@ -182,3 +182,85 @@ console.log(global.value); // undefined
 함수 A에서는 A가 호출될 때, this가 A의 인스턴스인지 확인하는 분기문이 추가되었다. this가 A의 인스턴스가 아니라면, new로 호출된 것이 아님을 의미하고, new로 A를 호출하여 반환하게 하였다. 이렇게 하면 var b = A(10);과 같이 사용자가 사용했다고 하더라도, 전역 객체에 접근하지 않고, 새 인스턴스가 생성되어 b에 반환될 것이다. 이와 같이 하면, 특정 함수 이름과 상관없이 이 패턴을 공통으로 사용하는 모듈을 작성할 수 있는 장점이 있다.
 
 ### 4-2-4. call과 apply 메서드를 이용한 명시적인 this 바인딩
+
+- 자바스크립트는 내부적인 this 바인딩 이외에도 특정 객체에 **명시적으로 바인딩** 시키는 방법도 제공한다.
+- 이를 가능케 하는 것이 **[apply()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)** 와 **[call()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)** 메서드다.
+- apply() 메서드는 this를 특정 객체에 바인딩할 뿐 본질적인 기능은 **함수 호출**이다.
+- apply()나 call() 메서드는 this를 명시적으로 매핑해서 특정 함수나 메서드를 호출할 수 있다는 장점이 있다.
+- 대표적인 용도가 앞서 설명한 arguments 객체와 같은 **유사 배열 객체에서 배열 메서드를 사용**하는 경우이다.
+
+```javascript
+// apply() 메서드를 이용한 this 바인딩
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+var foo = {};
+
+Person.apply(foo, ["foo", 30]);
+console.dir(foo);
+```
+
+```javascript
+// apply() 메서드를 활용한 arguemnts 객체의 slice() 활용
+function myFunction() {
+  console.dir(arguments);
+
+  arguments.shift(); // 에러 발생
+
+  var args = Array.prototype.slice.apply(arguments);
+  console.dir(args);
+}
+
+myFunction(1, 2, 3);
+```
+
+- 1. 배열에서는 [shift()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) 메서드를 사용해 첫 번째 원소를 쉽게 삭제할 수 있지만, arguments 객체는 유사 객체 배열이므로 에러가 발생한다.
+- 2. Array.prototype.slice() 메서드를 호출하고 this는 arguments 객체로 바인딩시킨다.
+
+## 4-3. 함수 리턴
+
+- **자바스크립트 함수는 항상 리턴값을 반환한다.** return 문을 사용하지 않았더라도 다음의 규칙으로 전달한다.
+
+### 4-3-1. 규칙 1) 일반 함수나 메서드는 리턴값을 지정하지 않을 경우, undefined 값이 리턴된다
+
+```javascript
+// return 문 없는 일반 함수
+var noReturn = function () {
+  console.log("No return");
+};
+
+var result = noReturn();
+console.log(result); // No return undefined
+```
+
+### 4-3-2. 규칙 2) 생성자 함수에서 리턴값을 지정하지 않을 경우 생성된 객체가 리턴된다
+
+```javascript
+// 생성자 함수에서 명시적으로 객체를 리턴
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  return { name: "bar", age: 20 };
+}
+
+var foo = new Person("foo", 30);
+console.log(foo); // age: 20 name: bar
+```
+
+생성자 함수의 리턴값으로 넘긴 값이 객체가 아닌 불린, 숫자, 문자열의 경우는 this로 바인딩된 객체가 리턴된다.
+
+```javascript
+// 생성자 함수에서 명시적으로 기본 타입값을 리턴
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  return 100;
+}
+
+var foo = new Person("foo", 30);
+console.log(foo); // Person {name: "foo", age: 30}
+```
