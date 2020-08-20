@@ -10,3 +10,4 @@
 - [03-2. 자바스크립트 데이터 타입과 연산자](./Javascript/03_Javascript_datatype&operators_2.md)
 - [04-1. 함수](./Javascript/04_Javascript_function_1.md)
 - [04-2. 함수](./Javascript/04_Javascript_function_2.md)
+- [04-3. 프로토타입 체이닝](./Javascript/04_Javascript_prototypeChaining.md)
