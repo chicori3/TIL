@@ -12,3 +12,4 @@
 - [04-2. 함수](./Javascript/04_Javascript_function_2.md)
 - [04-3. 프로토타입 체이닝](./Javascript/04_Javascript_prototypeChaining.md)
 - [05-1. 실행 컨텍스트](./Javascript/05_Javascript_executionContext.md)
+- [05-2. 클로저](./Javascript/05_Javascript_closer.md)
