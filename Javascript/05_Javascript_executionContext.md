@@ -110,6 +110,21 @@ function printFunc() {
 printFunc();
 ```
 
+```javascript
+var value = "value1";
+
+function printValue() {
+  return value;
+}
+
+function printFunc(func) {
+  var value = "value2";
+  console.log(func());
+}
+
+printFunc(printValue);
+```
+
 #### 정리
 
 1. 만들어진 스코프 체인으로 식별자 인식이 이루어진다.
