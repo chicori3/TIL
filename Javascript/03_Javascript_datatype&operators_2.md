@@ -5,7 +5,7 @@
 ### 5-1. 배열 리터럴
 
 - **배열 리터럴**은 자바스크립트에서 새로운 배열을 만드는 데 사용하는 표기법이다.
-- 배열 리터럴은 **대괄호[]**를 사용한다.
+- 배열 리터럴은 **대괄호[]** 를 사용한다.
 - 배열 리터럴에서는 **각 요소의 값**만을 포함한다.
 - 객체가 **프로퍼티의 이름**으로 해당 프로퍼티에 접근했다면, 배열은 **배열 내 위치 인덱스값**을 넣어서 접근한다.
 - 배열 내의 첫 번째 원소는 인덱스 0부터 시작한다.
@@ -189,7 +189,7 @@ console.log(bar.length); // 3
 ### 5.9 유사 배열 객체
 
 자바스크립트에서 length 프로퍼티를 가진 일반 객체를 **유사 배열 객체**라고 부른다. 유사 배열 객체의 특징은 객체임에도 불구하고, 표준 배열 메서드를 사용하는 게 가능하다는 것이다.
-유사 배열 객체의 경우 **[apply() 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)**를 사용하면 객체지만 표준 배열 메서드를 활용하는 것이 가능하다.
+유사 배열 객체의 경우 **[apply() 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)** 를 사용하면 객체지만 표준 배열 메서드를 활용하는 것이 가능하다.
 
 ```javascript
 var arr = ["bar"];
@@ -215,7 +215,7 @@ console.log(num.toExponential(1)); // '5.0e-1'
 console.log("test".charAt(2)); // 's'
 ```
 
-**[toExponential()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)**는 표준 숫자형 메서드로서, 숫자를 지수 형태의 문자열로 반환한다. 표준 문자열 메서드 **[charAt()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)**은 문자열에서 인자로 받은 위치에 있는 문자를 반환한다. 숫자와 문자열 등은 기본 타입이지만, 이들을 위해 정의된 표준 메서드들을 **객체처럼 호출할 수 있다**는 것을 기억하자.
+**[toExponential()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)** 는 표준 숫자형 메서드로서, 숫자를 지수 형태의 문자열로 반환한다. 표준 문자열 메서드 **[charAt()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)** 은 문자열에서 인자로 받은 위치에 있는 문자를 반환한다. 숫자와 문자열 등은 기본 타입이지만, 이들을 위해 정의된 표준 메서드들을 **객체처럼 호출할 수 있다**는 것을 기억하자.
 
 # 7. 연산자
 
