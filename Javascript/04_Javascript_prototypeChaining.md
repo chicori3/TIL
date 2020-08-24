@@ -19,10 +19,10 @@ console.log(Person);
 console.log(foo);
 ```
 
-- 1. Person() 생성자 함수는 prototype 프로퍼티로 자신과 링크된 **프로토타입 객체**를 가리킨다.
-- 2. 자바스크립트에서 객체를 생성하는 건 생성자 함수지만, 객체의 실제 부모 역할을 하는 건 생성자의 프로토타입 객체다.
-- 3. 결과값을 보면 Person()와 foo 객체가 같은 프로토타입 객체를 가진 것을 볼 수 있다.
-- 4. proto 프로퍼티나 [[Prototype]] 프로퍼티는 같다고 간주하면 된다.
+1.  Person() 생성자 함수는 prototype 프로퍼티로 자신과 링크된 **프로토타입 객체**를 가리킨다.
+2.  자바스크립트에서 객체를 생성하는 건 생성자 함수지만, 객체의 실제 부모 역할을 하는 건 생성자의 프로토타입 객체다.
+3.  결과값을 보면 Person()와 foo 객체가 같은 프로토타입 객체를 가진 것을 볼 수 있다.
+4.  proto 프로퍼티나 [[Prototype]] 프로퍼티는 같다고 간주하면 된다.
 
 ### 5-2. 객체 리터럴 방식으로 생성된 객체의 프로토타입 체이닝
 
@@ -43,9 +43,9 @@ console.log(obj.hasOwnProperty("nickName")); // false
 obj.sayNickName(); // Uncaught TypeError
 ```
 
-- 1. sayName() 메서드의 결과값은 출력됐지만, sayNickName() 메서드는 obj의 메서드가 아니므로 에러가 발생한다.
-- 2. **[hasOwnProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)** 메서드는 호출한 객체에 인자로 넘긴 문자열 이름의 프로퍼티나 메서드가 있는지 체크하는 자바스크립트 표준 API 함수다.
-- 3. 특정 객체의 프로퍼티나 메서드에 접근하려고 할 때, 해당 객체에 접근하려는 프로퍼티나 메서드가 없다면 **[[Prototype]]링크**를 따라 부모 역할을 하는 프로토타입 객체의 프로퍼티를 차례대로 검색하는 것을 **프로토타입 체이닝**이라고 한다.
+1. sayName() 메서드의 결과값은 출력됐지만, sayNickName() 메서드는 obj의 메서드가 아니므로 에러가 발생한다.
+2. **[hasOwnProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)** 메서드는 호출한 객체에 인자로 넘긴 문자열 이름의 프로퍼티나 메서드가 있는지 체크하는 자바스크립트 표준 API 함수다.
+3. 특정 객체의 프로퍼티나 메서드에 접근하려고 할 때, 해당 객체에 접근하려는 프로퍼티나 메서드가 없다면 **[[Prototype]]링크**를 따라 부모 역할을 하는 프로토타입 객체의 프로퍼티를 차례대로 검색하는 것을 **프로토타입 체이닝**이라고 한다.
 
 ### 5-3. 생성자 함수로 생성된 객체의 프로토타입 체이닝
 
@@ -64,9 +64,9 @@ console.log(foo.hasOwnProperty("name")); // true
 console.dir(Person.prototype);
 ```
 
-- 1. foo 객체의 프로토타입 객체는 Person.prototype이다.
-- 2. 함수에 연결된 프로토타입 객체는 디폴트로 **constructor 프로퍼티**만을 가진 객체이므로 hasOwnProperty() 메서드는 없다.
-- 3. 프로토타입 체이닝은 Object.prototype 객체로 계속 이어져 true가 출력된다.
+1.  foo 객체의 프로토타입 객체는 Person.prototype이다.
+2.  함수에 연결된 프로토타입 객체는 디폴트로 **constructor 프로퍼티**만을 가진 객체이므로 hasOwnProperty() 메서드는 없다.
+3.  프로토타입 체이닝은 Object.prototype 객체로 계속 이어져 true가 출력된다.
 
 ### 5-4. 프로토타입 체이닝의 종점
 
@@ -168,13 +168,13 @@ console.log(foo.constructor); // Person(name)
 console.log(bar.constructor); // Object()
 ```
 
-- 1. Person.prototype.constructor는 Person() 생성자 함수를 가리킨다.
-- 2. foo 객체는 Person.prototype 객체를 프로토타입으로 연결한다. foo 객체와 Person.prototype은 country 프로퍼티가 없으므로 undefined 값이 출력된다.
-- 3. 객체 리터럴 방식으로 생성한 country 프로퍼티를 가진 객체로 프로토타입 객체를 변경했다.
-- 4. 변경한 프로토타입 객체는 country 프로퍼티가 있으므로, 디폴트 프로토타입 객체처럼 **constructor 프로퍼티가 없다.**
-- 5. 변경한 프로토타입 객체는 객체 리터럴 방식으로 생성했으므로 **Object.prototype**을 [[Prototype]]으로 연결하고, Object.prototype 역시 Object() 생성자 함수와 연결된 프로토타입 객체여서, Object() 생성자 함수를 constructor 프로퍼티에 연결하고 있다.
-- 6. bar 객체는 새로 변경된 프로토타입 객체를 [[Prototype]]링크로 가리키게 된다.
-- 7. foo 객체는 디폴트 프로토타입 객체를, bar 객체는 새로 변경된 프로토타입 객체를 연결해서, 서로 다른 결과값을 만들어 버린다.
+1.  Person.prototype.constructor는 Person() 생성자 함수를 가리킨다.
+2.  foo 객체는 Person.prototype 객체를 프로토타입으로 연결한다. foo 객체와 Person.prototype은 country 프로퍼티가 없으므로 undefined 값이 출력된다.
+3.  객체 리터럴 방식으로 생성한 country 프로퍼티를 가진 객체로 프로토타입 객체를 변경했다.
+4.  변경한 프로토타입 객체는 country 프로퍼티가 있으므로, 디폴트 프로토타입 객체처럼 **constructor 프로퍼티가 없다.**
+5.  변경한 프로토타입 객체는 객체 리터럴 방식으로 생성했으므로 **Object.prototype**을 [[Prototype]]으로 연결하고, Object.prototype 역시 Object() 생성자 함수와 연결된 프로토타입 객체여서, Object() 생성자 함수를 constructor 프로퍼티에 연결하고 있다.
+6.  bar 객체는 새로 변경된 프로토타입 객체를 [[Prototype]]링크로 가리키게 된다.
+7.  foo 객체는 디폴트 프로토타입 객체를, bar 객체는 새로 변경된 프로토타입 객체를 연결해서, 서로 다른 결과값을 만들어 버린다.
 
 ### 5-9. 객체의 프로퍼티 읽기나 메서드를 실행할 때만 프로토타입 체이닝이 동작한다
 

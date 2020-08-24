@@ -216,8 +216,8 @@ function myFunction() {
 myFunction(1, 2, 3);
 ```
 
-- 1. 배열에서는 [shift()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) 메서드를 사용해 첫 번째 원소를 쉽게 삭제할 수 있지만, arguments 객체는 유사 객체 배열이므로 에러가 발생한다.
-- 2. Array.prototype.slice() 메서드를 호출하고 this는 arguments 객체로 바인딩시킨다.
+1.  배열에서는 [shift()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) 메서드를 사용해 첫 번째 원소를 쉽게 삭제할 수 있지만, arguments 객체는 유사 객체 배열이므로 에러가 발생한다.
+2.  Array.prototype.slice() 메서드를 호출하고 this는 arguments 객체로 바인딩시킨다.
 
 ### 4-3. 함수 리턴
 
