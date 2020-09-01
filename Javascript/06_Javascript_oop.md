@@ -266,3 +266,70 @@ console.log(me.name); // undefined
 3. public 메서드가 클로저 역할을 하면서 private 멤버인 name에 접근할 수 있다.
 
 이것이 자바스크립트에서 할 수 있는 기본적인 정보 은닉 방법이다.
+
+```javascript
+// 좀 더 깔끔하게
+var Person = function (arg) {
+  var name = arg ? arg : "white";
+
+  return {
+    getName: function () {
+      return name;
+    },
+    setName: function () {
+      name = arg;
+    },
+  };
+};
+
+var me = Person();
+// var me = new Person();
+console.log(me.getName());
+```
+
+1. Person 함수를 호출하여 객체를 반환받는다. 이 객체에 Person 함수의 private 멤버에 접근할 수 있는 메서드들이 담겨있다.
+2. 사용자는 반환받는 객체로 메서드를 호출할 수 있고, private 멤버에 접근할 수 있다.
+3. 접근하는 private 멤버가 객체나 배열이면 얕은 복사로 참조만을 반환하므로 사용자가 이후 이를 쉽게 변경할 수 있으니 주의해야 한다.
+
+```javascript
+var ArrCreate = function (arg) {
+  var arr = [1, 2, 3];
+
+  return {
+    getArr: function () {
+      return arr;
+    },
+  };
+};
+
+var obj = ArrCreate();
+// var me = new Person();
+var arr = obj.getArr();
+arr.push(5);
+console.log(obj.getArr()); // [ 1,2,3,5 ]
+```
+
+이와 같은 문제가 있으므로 프로그래머는 객체를 반환하는 경우 신중해야 한다. 보통의 경우, 객체를 반환하지 않고 객체의 주요 정보를 새로운 객체에 담아서 반환하는 방법을 많이 사용한다. 꼭 객체가 반환되어야 하는 경우에는 깊은 복사로 복사본을 만들어서 반환하는 방법을 사용하는 것이 좋다.
+
+```javascript
+var Person = (function (arg) {
+  var name = arg ? arg : "white";
+
+  var Func = function () {};
+  Func.prototype = {
+    getName: function () {
+      return name;
+    },
+    setName: function () {
+      name = arg;
+    },
+  };
+
+  return Func;
+})();
+
+var me = new Person();
+console.log(me.getName());
+```
+
+클로저를 활용하여 name에 접근할 수 없게 했다. 즉시 실행 함수에서 반환되는 Func이 클로저가 되고 이 함수가 참조하는 name 프로퍼티가 자유 변수가 된다. 따라서 사용자는 name에 대한 접근이 불가능하다.
