@@ -16,3 +16,4 @@
 - [06-1. 객체지향 프로그래밍](./Javascript/06_Javascript_oop_1.md)
 - [06-2. 객체지향 프로그래밍](./Javascript/06_Javascript_oop_2.md)
 - [07-1. 함수형 프로그래밍](./Javascript/06_Javascript_fp_1.md)
+- [07-2. 함수형 프로그래밍](./Javascript/06_Javascript_fp_2.md)
