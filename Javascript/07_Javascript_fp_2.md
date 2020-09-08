@@ -87,7 +87,7 @@ Function.prototype.bind = function (thisArg) {
 };
 ```
 
-1. [bind()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 함수는 커링 기법을 활용한 함수이다.
+1. **[bind()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)** 함수는 커링 기법을 활용한 함수이다.
 2. 사용자가 고정시키고자 하는 인자를 bind() 함수를 호출할 때 넘겨주고 반환받은 함수를 호출하면서 나머지 가변 인자를 넣어줄 수 있다.
 3. Curry() 함수와 다른 점은 함수를 호출할 때 this에 바인딩시킬 객체를 사용자가 넣어줄 수 있다는 점이다.
 
@@ -110,3 +110,143 @@ myfunc1("jesse");
 1. myfunc() 함수는 myobj 객체를 this에 바인딩시켜 print_all() 함수를 실행하는 새로운 함수이다.
 2. my-func1() 함수를 실행하면 인자도 bind() 함수에 모두 넘겨진다.
 3. 특정 함수에 원하는 객체를 바인딩시켜 새로운 함수를 사용할 때 bind() 함수가 사용된다.
+
+### 3-4. 래퍼
+
+- 래퍼란 특정 함수를 자신의 함수로 덮어쓰는 것을 말한다.
+- 사용잔느 원래 함수 기능을 잃어버리지 않은 상태로 자신의로직을 수행할 수 있어야 한다.
+
+```javascript
+function wrap(object, method, wrapper) {
+  var fn = object[method];
+  return (object[method] = function () {
+    return wrapper.apply(
+      this,
+      [fn].concat(Array.prototype.slice.call(arguments))
+    );
+    // return wrapper.apply(
+    //   this,
+    //   [fn.bind(this)].concat(Array.prototype.slice.call(arguments))
+    // );
+  });
+}
+
+Function.prototype.original = function (value) {
+  this.value = value;
+  console.log("value : " + this.value);
+};
+
+var mywrap = wrap(Function.prototype, "original", function (orig_func, value) {
+  this.value = 20;
+  orig_func(value);
+  console.log("wrapper value : " + this.value);
+});
+
+var obj = new mywrap("saul");
+// value : saul
+// wrapper value : 20
+```
+
+1. Function.prototype의 original 함수는 인자로 넘어온 값을 value에 할당하고 출력하는 기능을 한다.
+2. 세 번째 인자로 넘긴 자신의 익명 함수를 Function.prototype.original에 덮어쓰기 위해 wrap 함수를 호출하였다.
+3. 사용자는 자신의 익명 함수의 첫 번째 인자로 원래 함수의 참조를 받을 수 있다.
+4. 주석된 bind 함수를 이용하면 original()이 호출될 때의 this와 반환되는 익명 함수의 this가 다른 점을 해결할 수 있다.
+
+래퍼는 기존에 제공되는 함수에서 사용자가 원하는 로직을 추가하고 싶다거나, 기존의 버그를 피해가고자 할 때 많이 사용된다.  
+특히, 특정 플랫폼에서 버그를 발생시키는 함수가 있을 경우 이를 컨트롤하는 데 용이하다.
+
+### 3-5. 반복 함수
+
+#### 3-5-1. each
+
+- **[each()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)** 함수는 배열의 각 요소 혹은 객체의 각 프로퍼티를 하나씩 꺼내서 차례대로 특정 함수에 인자로 넣어 실행시키는 역할을 한다.
+
+```javascript
+function each(obj, fn, args) {
+  if (obj.length === undefined)
+    for (var i in obj) fn.apply(obj[i], args || [i, obj[i]]);
+  else
+    for (var i = 0; i < obj.length; i++) fn.apply(obj[i], args || [i, obj[i]]);
+  return obj;
+}
+
+each([1, 2, 3], function (idx, num) {
+  console.log(idx + ": " + num);
+});
+
+var saul = {
+  name: "saul",
+  age: 30,
+  sex: "Male",
+};
+
+each(saul, function (idx, value) {
+  console.log(idx + ": " + value);
+});
+```
+
+1. obj에 length가 있는 경우와 없는 경우로 나누어서, 루프를 돌며 각 요소를 인자로 하여 차례대로 함수를 호출한다.
+2. each() 함수에서 사용자 함수를 호출할 때 넘기는 인자의 순서나 구성이 라이브러리에 따라 다를 수 있다.
+
+#### 3-5-2. map
+
+- **[map()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)** 함수는 배열의 각 요소를 꺼내서 사용자 정의 함수를 적용시켜 새로운 값을 얻은 후, 새로운 배열에 넣는다.
+
+```javascript
+Array.prototype.map = function (callback) {
+  // this가 null인지, 배열인지 체크
+  // callback이 함수인지 체크
+
+  var obj = this;
+  var value, mapped_value;
+  var A = new Array(obj.length);
+
+  for (var i = 0; i < obj.length; i++) {
+    value = obj[i];
+    mapped_value = callback.call(null, value);
+    A[i] = mapped_value;
+  }
+
+  return A;
+};
+
+var arr = [1, 2, 3];
+var new_arr = arr.map(function (value) {
+  return value * value;
+});
+
+console.log(new_arr); // [ 1, 4, 9 ]
+```
+
+사용자는 map() 함수를 이용하여 각 요소의 제곱값을 반환하는 순수 함수를 넣어 실행시킨 뒤 새로운 배열을 반환 받을 수 있다.
+
+#### 3-5-3. reduce
+
+- **[reduce()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)**는 배열의 각 요소를 하나씩 꺼내서 사용자의 함수를 적용시킨 뒤, 그 값을 계속해서 누적시키는 함수이다.
+
+```javascript
+Array.prototype.reduce = function (callback, memo) {
+  // this가 null인지, 배열인지 체크
+  // callback이 함수인지 체크
+
+  var obj = this;
+  var value,
+    accumulated_value = 0;
+
+  for (var i = 0; i < obj.length; i++) {
+    value = obj[i];
+    accumulated_value = callback.call(null, accumulated_value, value);
+  }
+
+  return accumulated_value;
+};
+
+var arr = [1, 2, 3];
+var accumulated_val = arr.reduce(function (a, b) {
+  return a + b * b;
+});
+
+console.log(accumulated_val); // 14
+```
+
+각 요소를 사용자가 원하는 특정 연산으로 누적된 값을 반환받고자 할 때 유용하게 사용된다.
