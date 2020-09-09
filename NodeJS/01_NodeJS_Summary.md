@@ -43,3 +43,15 @@
 ## 4. NodeJS를 사용하기 적합하지 않은 예
 
 - 복잡한 데이터를 처리하기 위해 하드웨어를 사용해야 하는 곳에는 Django가 적합하다
+
+## 5. 설치
+
+```
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Using Debian, as root
+curl -sL https://deb.nodesource.com/setup_14.x | bash -
+apt-get install -y nodejs
+```
