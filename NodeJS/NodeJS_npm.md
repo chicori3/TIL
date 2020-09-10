@@ -1,4 +1,4 @@
-# 03. Node Package Manager(npm)
+# Node Package Manager(npm)
 
 - npm은 자바스크립트 패키지 매니저이다.
 - Node.js에서 사용할 수 있는 모듈들을 패키지화하여 모아둔 저장소 겸 패키지 설치 및 관리를 위한 CLI(Command line interface)를 제공한다.

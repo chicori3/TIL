@@ -1,12 +1,10 @@
-# 01. NodeJS 개요
-
-## 1. NodeJS?
+# NodeJS?
 
 - NodeJS는 구글 크롬의 자바스크립트 엔진(V8 Engine)으로 빌드 된 Javascript 런타임이다.
 - Javascript를 브라우저의 밖으로 확장하기 위해 만들어졌다.
 - [Express](https://expressjs.com/ko/)와 같은 라이브러리를 이용해 서버를 만들 수 있지만, NodeJs 자체는 웹 서버가 아니다.
 
-## 2. NodeJS의 특징
+## 1. NodeJS의 특징
 
 ### 비동기 I/O 처리
 
@@ -32,7 +30,7 @@
 
 - NodeJS는 MIT License가 적용되어 있다.
 
-## 3. NodeJS를 사용하기 적합한 예
+## 2. NodeJS를 사용하기 적합한 예
 
 - 입출력이 잦은 어플리케이션
 - 데이터 스트리밍 어플리케이션
@@ -40,11 +38,11 @@
 - JSON API 어플리케이션
 - 싱글페이지 어플리케이션
 
-## 4. NodeJS를 사용하기 적합하지 않은 예
+## 3. NodeJS를 사용하기 적합하지 않은 예
 
 - 복잡한 데이터를 처리하기 위해 하드웨어를 사용해야 하는 곳에는 Django가 적합하다
 
-## 5. 설치
+## 4. 설치
 
 ```
 # Using Ubuntu

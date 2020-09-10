@@ -1,4 +1,4 @@
-# 02. Hello World
+# Hello World
 
 - 공식 문서 링크: https://nodejs.org/ko/docs/
 - 시작 가이드: https://nodejs.org/ko/docs/guides/getting-started-guide/
