@@ -33,3 +33,4 @@
 > [VELOPERT](https://react.vlpt.us/) [NomadCoder](https://nomadcoders.co/)
 
 - [React 시작하기](./React/React_Summary.md)
+- [React Fundamental](./React/React_fundamentals.md)
