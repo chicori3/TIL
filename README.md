@@ -5,7 +5,7 @@
 
 ## JAVASCRIPT
 
-> 인사이드 자바스크립트를 참고하였습니다.
+> 인사이드 자바스크립트
 
 - [01. 자바스크립트 개요](./Javascript/01_Javascript_Summary.md)
 - [03-1. 자바스크립트 데이터 타입과 연산자](./Javascript/03_Javascript_datatype&operators_1.md)
@@ -22,7 +22,7 @@
 
 ## Node.js
 
-> [VELOPERT.LOG](https://velopert.com/node-js-tutorials)를 참고하였습니다.
+> [VELOPERT.LOG](https://velopert.com/node-js-tutorials)
 
 - [NodeJS 개요](./NodeJS/NodeJS_Summary.md)
 - [Hello World](./NodeJS/NodeJS_HelloWorld.md)
@@ -30,6 +30,6 @@
 
 ## React
 
-> [VELOPERT](https://react.vlpt.us/)를 참고하였습니다.
+> [VELOPERT](https://react.vlpt.us/) [NomadCoder](https://nomadcoders.co/)
 
 - [React 시작하기](./React/React_Summary.md)
