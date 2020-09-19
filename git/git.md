@@ -1,6 +1,6 @@
 # Git
 
-> (참조링크)[https://rogerdudler.github.io/git-guide/index.ko.html]
+> [참조링크](https://rogerdudler.github.io/git-guide/index.ko.html)
 
 - 분산형 버전 관리 시스템.
 - 오프라인 작업이 가능하며 빠르다.
