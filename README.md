@@ -40,3 +40,7 @@
 - [React Fundamental](./React/React_fundamentals.md)
 - [React JSX](./React/React_JSX.md)
 - [React props](./React/React_props.md)
+
+## TypeScript
+
+- [TypeScript 개요](./Typescript/ts_Summary.md)
