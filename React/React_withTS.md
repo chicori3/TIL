@@ -165,3 +165,51 @@ const Number: React.FunctionComponent<IProps> = ({ count }) => (
 - styled component에 props를 추가할 수 있다.
 - interface로도 작성할 수 있지만 그렇게 되면 너무 많은 interface를 관리해야 한다.
 - 컴포넌트는 interface를, styled component는 인라인으로 작성하는 것이 깔끔하다.
+
+## Theme with TS
+
+```js
+// theme.tsx
+export default {
+  blueColor: "red",
+};
+```
+
+- theme에서는 blueColor를 설정해두었다.
+
+```js
+// index.tsx
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
+  document.getElementById("root")
+);
+
+// Number.tsx
+const Container =
+  styled.span <
+  { isBlue: boolean } >
+  `
+  color: ${(props) => (props.isBlue ? props.theme.blueColor : "black")};
+`;
+```
+
+- index에서는 만들어둔 theme를 보여주기 위해 import 하였다.
+- theme에 자주 사용할 값을 적은 뒤 props.theme.value를 이용해 사용할 수 있다.
+
+```js
+// style.d.ts
+import "styled-components";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    blueColor: string;
+  }
+}
+```
+
+- 자주 사용될 값들의 타입을 미리 정해두면 TS를 관리하기 더 용이하다.
