@@ -140,3 +140,28 @@ class App extends Component<{}, IState> {
 - Input에는 Input과 Form 함수형 컴포넌트를 만들고 App에는 onChange와 onFormSubmit 함수를 작성했다.
 - 각 함수를 TS에 알려주기 위해 인터페이스에 `onChange: (event: React.SyntheticEvent<HTMLInputElement>) => void;`를 작성해주었는 데, onChange는 HTMLInputElement에 작동하는 SyntheticEvent이며 void를 리턴한다는 말이다.
 - 타입이 정해진 함수를 사용할 App의 Form과 Input 컴포넌트에 작성한다.
+
+## Styled Component with TS
+
+```js
+// Number.tsx
+
+// interface IContainer {
+//   isBlue: boolean;
+// }
+
+const Container =
+  styled.span <
+  { isBlue: boolean } >
+  `
+  color: ${(props) => (props.isBlue ? "blue" : "black")};
+`;
+
+const Number: React.FunctionComponent<IProps> = ({ count }) => (
+  <Container isBlue={count > 10}>{count}</Container>
+);
+```
+
+- styled component에 props를 추가할 수 있다.
+- interface로도 작성할 수 있지만 그렇게 되면 너무 많은 interface를 관리해야 한다.
+- 컴포넌트는 interface를, styled component는 인라인으로 작성하는 것이 깔끔하다.
