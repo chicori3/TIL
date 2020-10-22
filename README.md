@@ -40,6 +40,7 @@
 - [React Fundamental](./React/React_fundamentals.md)
 - [React JSX](./React/React_JSX.md)
 - [React props](./React/React_props.md)
+- [React state & life cycle](./React/React_state.md)
 - [React with TS](./React/React_withTS.md)
 
 ## TypeScript
