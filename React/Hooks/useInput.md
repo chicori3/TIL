@@ -36,7 +36,7 @@ const useInput = (initialValue, validator) => {
     } = event;
     let willUpdate = true;
     if (typeof validator === "function") {
-      willUpdate = validator(value); // 2. validator 함수(maxLength)를 검증한다.
+      willUpdate = validator(value); // 2. validator 함수(maxLength)를 검증한다
     }
     if (willUpdate) {
       setValue(value); // 3. true를 받으면 업데이트한다

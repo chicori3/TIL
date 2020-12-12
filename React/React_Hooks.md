@@ -7,7 +7,7 @@ class 없이 React를 사용할 수 있고, 간결한 코드가 되도록 도와
 
 - [useState](./Hooks/useState.md)
 - [useInput](./Hooks/useInput.md)
-- useTabs
+- [useTabs](./Hooks/useTabs.md)
 
 ## useEffect
 

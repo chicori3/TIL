@@ -9,7 +9,7 @@ import React, { useState } from "react";
 export default function App() {
   // Hook 작성
   const [item, setItem] = useState(1);
-  // useState는 2개의 value를 Array로 return한다.
+  // useState는 2개의 value를 Array로 return
   const incrementItem = () => {
     setItem(item + 1);
   };
