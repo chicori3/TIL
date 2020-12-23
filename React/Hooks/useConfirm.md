@@ -1,6 +1,6 @@
 # useConfirm
 
-`useState`와 `useEffect`를 사용하지 않는 함수형 컴포넌트로 사실 Hook은 아니다.
+`useState`와 `useEffect`를 사용하지 않는 함수형 컴포넌트로 Hook은 아니다.
 
 ```js
 const useConfirm = (message = "", onConfirm, onCancle) => {

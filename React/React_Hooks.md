@@ -23,7 +23,7 @@ class 없이 React를 사용할 수 있고, 간결한 코드가 되도록 도와
 - useBeforeLeave
 - useAxios
 
-## etc
+## Functional Component
 
-- usePreventLeave
+- [usePreventLeave](./Hooks/usePreventLeave.md)
 - [useConfirm](./Hooks/useConfirm.md)
