@@ -32,4 +32,4 @@ const App = () => {
 ```
 
 - `useConfirm`은 사용자에게 확인을 받는 기능을 하는 함수로 사용자가 저장하거나 삭제할 때 활용할 수 있다.
-- brower가 이벤트를 실행하기 전에 confirm을 우선 실행하고, `onConfirm`이나 `onCancle`이 실행된다.
+- browser가 이벤트를 실행하기 전에 confirm을 우선 실행하고, `onConfirm`이나 `onCancle`이 실행된다.

@@ -14,13 +14,13 @@ class 없이 React를 사용할 수 있고, 간결한 코드가 되도록 도와
 - [useEffect](./Hooks/useEffect.md)
 - [useTitle](./Hooks/useTitle.md)
 - [useClick](./Hooks/useClick.md)
+- [useBeforeLeave](./Hooks/useBeforeLeave.md)
 - useFadeIn
 - useFullscreen
 - useHover
 - useNetwork
 - useNotification
 - useScroll
-- useBeforeLeave
 - useAxios
 
 ## Functional Component
