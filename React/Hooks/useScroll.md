@@ -29,6 +29,6 @@ const App = () => {
 
 - 화면을 스크롤했을 때 변화를 주고 싶다면 사용할 수 있는 `useScroll`
 
-##### 코드실행결과
+#### 코드실행결과
 
 <img src="../images/useScroll.gif" width="50%" height="50%" alt="useScroll"></img>
