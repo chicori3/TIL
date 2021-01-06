@@ -19,10 +19,10 @@ class 없이 React를 사용할 수 있고, 간결한 코드가 되도록 도와
 - [useNetwork](./Hooks/useNetwork.md)
 - [useScroll](./Hooks/useScroll.md)
 - [useFullscreen](./Hooks/useFullscreen.md)
-- useNotification
 - useAxios
 
 ## Functional Component
 
 - [usePreventLeave](./Hooks/usePreventLeave.md)
 - [useConfirm](./Hooks/useConfirm.md)
+- [useNotification](./Hooks/useNotification.md)
