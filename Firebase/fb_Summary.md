@@ -9,4 +9,35 @@
 - 백엔드 기능을 클라우드 서비스 형태로 제공한다.
 - 데이터 베이스, 소셜 서비스 연동, 파일 시스템 등을 API 형태로 제공해준다.
 
+## 시작하기
+
+```
+yarn add firebase
+```
+
+```js
+// firebase.js
+import firebase from "firebase";
+import "firebase/firestore";
+
+const firebaseConfig = {
+  // config
+  apiKey: "API_KEY",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  databaseURL: "https://PROJECT_ID.firebaseio.com",
+  projectId: "PROJECT_ID",
+  storageBucket: "PROJECT_ID.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID",
+  measurementId: "G-MEASUREMENT_ID",
+};
+
+// 초기화
+firebase.initializeApp(firebaseConfig);
+
+const firestore = firebase.firestore();
+
+export { firestore };
+
+```
 
