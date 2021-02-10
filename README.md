@@ -34,7 +34,9 @@
 
 ## React
 
-> [VELOPERT](https://react.vlpt.us/) [NomadCoder](https://nomadcoders.co/)
+> [VELOPERT](https://react.vlpt.us/) / [NomadCoder](https://nomadcoders.co/)  
+[React 공식](https://ko.reactjs.org/docs/getting-started.html)  
+[CRA 문서](https://create-react-app.dev/docs/getting-started)
 
 - [React 시작하기](./React/01_React_Summary.md)
 - [React JSX](./React/02_React_JSX.md)
@@ -47,6 +49,8 @@
 - [React Hooks](./React/React_Hooks.md)
 
 ## Firebase
+
+>[Firebase 공식](https://firebase.google.com/docs/guides?authuser=0)
 
 - [Firebase 개요](./Firebase/fb_Summary.md)
 

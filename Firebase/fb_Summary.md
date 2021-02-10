@@ -41,3 +41,13 @@ export { firestore };
 
 ```
 
+## 사용하기
+
+```js
+// firebase.js
+export const authService = firebase.auth();
+export const database = firebase.database();
+```
+
+필요한 경우 `firebase.something()`을 components 내에서 호출 해야하는 데,        
+이런 식으로 작성하면 단 한 번만 호출해서 사용할 수 있다.
