@@ -62,4 +62,5 @@
 
 ## Java
 
-- [Java 01](./Java/java01.md)
+- [Java Feature](./Java/java_feature.md)
+- [Java Datatype and Operation](./Java/java_datatype.md)
