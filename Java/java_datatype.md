@@ -27,3 +27,25 @@ public class Datatype
 - 숫자를 `"`로 감싸면 `String` 타입이 된다.
 - JS와 달리 `'`로 감싸면 `Char` 타입이 된다.
 - 데이터 타입에 따라 메소드를 사용한다.
+
+```java
+public class Number
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println(6 + 2); // 8
+		System.out.println(6 - 2); // 4
+		System.out.println(6 * 2); // 12
+		System.out.println(6 / 2); // 3
+
+		System.out.println(Math.PI); // 3.1415...
+		System.out.println(Math.floor(Math.PI)); // 3.0
+		System.out.println(Math.ceil(Math.PI)); // 4.0
+	}
+
+}
+```
+
+- `Math`는 수학에서 자주 사용하는 상수들과 함수들을 미리 구현해 놓은 클래스이다.
+- `Math` 클래스의 모든 메소드는 `클래스 메소드(static method)`이므로, 객체를 생성하지 않고도 바로 사용할 수 있다.
