@@ -19,7 +19,7 @@ public class Datatype
 //		System.out.println(1111.length());
 
 		System.out.println("Hello World"); // String
-		System.out.println('H'); // Char
+		System.out.println('H'); // Character
 	}
 }
 ```
@@ -49,3 +49,30 @@ public class Number
 
 - `Math`는 수학에서 자주 사용하는 상수들과 함수들을 미리 구현해 놓은 클래스이다.
 - `Math` 클래스의 모든 메소드는 `클래스 메소드(static method)`이므로, 객체를 생성하지 않고도 바로 사용할 수 있다.
+
+```java
+public class StringApp
+{
+
+	public static void main(String[] args)
+	{
+		// Character & String
+		System.out.println("Hello World"); // String
+		System.out.println("H"); // String
+		System.out.println('H'); // Character
+
+		System.out.println("Hello " + "World"); // Hello World
+
+		// new line
+		System.out.println("Hello \nWorld"); // Hello / World
+
+		// escape
+		System.out.println("Hello \"World\""); // Hello "World"
+	}
+
+}
+```
+
+- `""`와 `''`의 차이가 있으니 유의할 것
+- `\n`은 줄바꿈의 기능이 있다
+- String 안에서 따옴표를 쓰고 싶을 땐 `\"string/"`처럼 사용한다
