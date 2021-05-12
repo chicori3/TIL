@@ -68,6 +68,9 @@ public class StringApp
 
 		// escape
 		System.out.println("Hello \"World\""); // Hello "World"
+
+		System.out.println("Hello World".length()); // 11
+		System.out.println("Hello World".replace("Hello", "Bye")); // Bye World
 	}
 
 }
