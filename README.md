@@ -65,3 +65,4 @@
 - [Java Feature](./Java/java_feature.md)
 - [Java Datatype and Operation](./Java/java_datatype.md)
 - [Java Variable](./Java/java_variable.md)
+- [Java Practice](./Java/java_prac.md)
