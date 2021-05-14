@@ -48,3 +48,15 @@ moodLamp.on();
 
 - `JOptionPane.showInputDialog()` 메서드는 정보를 받는 창을 띄우는 기능을 한다
 - 받아온 정보가 String 이므로 `Double.parseDobule()` 메서드를 이용해 double로 변형시킬 수 있다
+
+```java
+String id = args[0];
+String bright = args[1];
+```
+
+![java_prac_01](./images/java_prac_01.png)
+
+- 실행 설정에서 `인자`를 미리 설정해둘 수 있다
+- 인자를 매개변수로 사용할 때 `args[]`로 순서대로 입력하여 받아올 수 있다
+
+![java_prac_01](./images/java_prac_02.png)
