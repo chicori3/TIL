@@ -180,10 +180,6 @@ public class AccountingArrayLoopApp
         dividendRates[1] = 0.3;
         dividendRates[2] = 0.2;
 
-        double dividend1 = income * dividendRates[0];
-        double dividend2 = income * dividendRates[1];
-        double dividend3 = income * dividendRates[2];
-
         // 배열의 길이만큼 반복
         int i = 0;
         while (i < dividendRates.length)
@@ -196,3 +192,78 @@ public class AccountingArrayLoopApp
 
 }
 ```
+
+## 메서드
+
+```java
+
+public class AccountingMethodApp
+{
+    // 전역 변수 설정
+    public static double valueOfSupply;
+    public static double vatRate;
+    public static double expenseRate;
+
+    public static void main(String[] args)
+    {
+        valueOfSupply = 10000.0;
+        vatRate = 0.1;
+        expenseRate = 0.3;
+
+        print();
+    }
+
+    // 메서드
+    public static void print()
+    {
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+        System.out.println("Expense : " + getExpense());
+        System.out.println("Income : " + getIncome());
+        System.out.println("Dividend 1 : " + getDividend1());
+        System.out.println("Dividend 2 : " + getDividend2());
+        System.out.println("Dividend 3 : " + getDividend3());
+    }
+
+    public static double getDividend3()
+    {
+        return getIncome() * 0.2;
+    }
+
+    public static double getDividend2()
+    {
+        return getIncome() * 0.3;
+    }
+
+    public static double getDividend1()
+    {
+        return getIncome() * 0.5;
+    }
+
+    public static double getIncome()
+    {
+        return valueOfSupply - getExpense();
+    }
+
+    public static double getExpense()
+    {
+        return valueOfSupply * expenseRate;
+    }
+
+    public static double getTotal()
+    {
+        return valueOfSupply + getVAT();
+    }
+
+    public static double getVAT()
+    {
+        return valueOfSupply * vatRate;
+    }
+
+}
+```
+
+- 자바의 `메서드`는 `클래스 내부에만 존재`하는 `함수`이다
+- 똑같은 내용을 반복할 때 `메서드`를 사용한다
+- `어떠한 입력값을 넣었을 때 어떤 리턴값을 돌려준다`라는 식으로 작성한다
