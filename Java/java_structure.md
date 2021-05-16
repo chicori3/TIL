@@ -57,4 +57,4 @@ public class InstanceApp
 ## Inheritance (상속)
 
 - 각 클래스는 상위 클래스의 메서드와 변수를 사용할 수 있는 데 이것이 `상속`이다
-- `PrintWriter`가 `write()` 메서드를 가지고 있지 않다면 그보다 상위 클래스의 `write()`를 찾아서 실행하고 없다면 오류가 발생한다
+- `PrintWriter`가 `write()` 메서드를 가지고 있지 않다면 그보다 상위 클래스의 `write()`를 찾아서 실행하고 없다면 오류가 발생한다d
