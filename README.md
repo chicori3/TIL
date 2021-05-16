@@ -62,7 +62,7 @@
 
 ## Java
 
-> [생활코딩](https://opentutorials.org/)
+> [생활코딩](https://opentutorials.org/)        
 [JAVA 문서](https://docs.oracle.com/javase/8/docs/api/)
 
 - [Java Feature](./Java/java_feature.md)
@@ -70,3 +70,4 @@
 - [Java Variable](./Java/java_variable.md)
 - [Java Practice](./Java/java_prac.md)
 - [Java Structure](./Java/java_structure.md)
+- [Java MyApp](./Java/java_myApp.md)
