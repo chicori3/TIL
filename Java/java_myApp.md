@@ -346,3 +346,91 @@ public class AccountingClassApp
 - `클래스`는 `서로 연관된 변수와 메서드를 그룹핑`한 것이다
 - `소속을 명시적`으로 표현할 수 있다
 - `클래스가 다르다면` 같은 이름의 메서드도 사용할 수 있다
+
+## 인스턴스
+
+```java
+class Accounting
+{
+    // static 제거
+    public double valueOfSupply;
+    public double vatRate;
+    public double expenseRate;
+
+    public void print()
+    {
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+        System.out.println("Expense : " + getExpense());
+        System.out.println("Income : " + getIncome());
+        System.out.println("Dividend 1 : " + getDividend1());
+        System.out.println("Dividend 2 : " + getDividend2());
+        System.out.println("Dividend 3 : " + getDividend3());
+    }
+
+    public double getDividend3()
+    {
+        return getIncome() * 0.2;
+    }
+
+    public double getDividend2()
+    {
+        return getIncome() * 0.3;
+    }
+
+    public double getDividend1()
+    {
+        return getIncome() * 0.5;
+    }
+
+    public double getIncome()
+    {
+        return valueOfSupply - getExpense();
+    }
+
+    public double getExpense()
+    {
+        return valueOfSupply * expenseRate;
+    }
+
+    public double getTotal()
+    {
+        return valueOfSupply + getVAT();
+    }
+
+    public double getVAT()
+    {
+        return valueOfSupply * vatRate;
+    }
+
+}
+
+public class AccountingClassApp
+{
+
+    public static void main(String[] args)
+    {
+
+        // 인스턴스
+        Accounting a1 = new Accounting();
+        a1.valueOfSupply = 20000.0;
+        a1.vatRate = 0.2;
+        a1.expenseRate = 0.5;
+        a1.print();
+
+        Accounting a2 = new Accounting();
+        a2.valueOfSupply = 20000.0;
+        a2.vatRate = 0.2;
+        a2.expenseRate = 0.5;
+        a2.print();
+
+    }
+
+}
+
+```
+
+- `인스턴스`는 `클래스를 복제하여 같은 메서드에 다른 상태를 갖도록`한 것이다
+- `new` 키워드로 복제할 수 있다
+- 복제된 클래스로 더 편리하게 작업할 수 있다
