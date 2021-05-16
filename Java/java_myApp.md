@@ -267,3 +267,82 @@ public class AccountingMethodApp
 - 자바의 `메서드`는 `클래스 내부에만 존재`하는 `함수`이다
 - 똑같은 내용을 반복할 때 `메서드`를 사용한다
 - `어떠한 입력값을 넣었을 때 어떤 리턴값을 돌려준다`라는 식으로 작성한다
+
+## 클래스
+
+```java
+// 클래스로 그룹핑
+class Accounting
+{
+    public static double valueOfSupply;
+    public static double vatRate;
+    public static double expenseRate;
+
+    public static void print()
+    {
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+        System.out.println("Expense : " + getExpense());
+        System.out.println("Income : " + getIncome());
+        System.out.println("Dividend 1 : " + getDividend1());
+        System.out.println("Dividend 2 : " + getDividend2());
+        System.out.println("Dividend 3 : " + getDividend3());
+    }
+
+    public static double getDividend3()
+    {
+        return getIncome() * 0.2;
+    }
+
+    public static double getDividend2()
+    {
+        return getIncome() * 0.3;
+    }
+
+    public static double getDividend1()
+    {
+        return getIncome() * 0.5;
+    }
+
+    public static double getIncome()
+    {
+        return valueOfSupply - getExpense();
+    }
+
+    public static double getExpense()
+    {
+        return valueOfSupply * expenseRate;
+    }
+
+    public static double getTotal()
+    {
+        return valueOfSupply + getVAT();
+    }
+
+    public static double getVAT()
+    {
+        return valueOfSupply * vatRate;
+    }
+
+}
+
+public class AccountingClassApp
+{
+
+    public static void main(String[] args)
+    {
+        // 다른 클래스에서 가져오기
+        Accounting.valueOfSupply = 10000.0;
+        Accounting.vatRate = 0.1;
+        Accounting.expenseRate = 0.3;
+
+        Accounting.print();
+    }
+
+}
+```
+
+- `클래스`는 `서로 연관된 변수와 메서드를 그룹핑`한 것이다
+- `소속을 명시적`으로 표현할 수 있다
+- `클래스가 다르다면` 같은 이름의 메서드도 사용할 수 있다
