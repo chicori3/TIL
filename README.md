@@ -65,9 +65,14 @@
 [JAVA 문서](https://docs.oracle.com/javase/8/docs/api/)
 > [생활코딩](https://opentutorials.org/) 
 
-- [Java Feature](./Java/java_feature.md)
-- [Java Datatype and Operation](./Java/java_datatype.md)
-- [Java Variable](./Java/java_variable.md)
-- [Java Practice](./Java/java_prac.md)
-- [Java Structure](./Java/java_structure.md)
-- [Java MyApp](./Java/java_myApp.md)
+### Java 1
+- [Java Feature](./Java/java1/java_feature.md)
+- [Java Datatype and Operation](./Java/java1/java_datatype.md)
+- [Java Variable](./Java/java1/java_variable.md)
+- [Java Practice](./Java/java1/java_prac.md)
+- [Java Structure](./Java/java1/java_structure.md)
+- [Java MyApp](./Java/java1/java_myApp.md)
+
+
+### Java 제어문
+- [Java Boolean](./Java/javafc/java_boolean.md)
