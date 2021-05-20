@@ -3,6 +3,7 @@
 ## 구상
 
 ![java_myApp_01](./images/java_myApp_01.png)
+>출처 : 생활코딩(https://opentutorials.org/)
 
 판매자로서 무언가를 팔고 세금, 기타 비용등을 제하고 남은 이익을 동업자와 배분하는 상황 가정
 
