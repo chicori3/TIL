@@ -31,3 +31,22 @@ public class BooleanApp
 
 - `contains()` 메서드는 string 변수에 해당 문자열이 포함된 여부에 따라 boolean 값을 리턴한다
 
+## 비교연산자
+
+```java
+public class ComparisonOperator
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println(1 > 1); // false
+		System.out.println(1 == 1); // true
+		System.out.println(1 >= 1); // true
+	}
+
+}
+```
+
+- `1 + 1 = 2` 에서 `+`는 산술연산자
+- `"1" + "1" = "11"` 에서 `+`는 결합연산자
+- 비교연산자는 값을 비교해서 그 결과값을 Boolean 타입 값으로 리턴한다
