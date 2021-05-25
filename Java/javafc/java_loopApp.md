@@ -36,3 +36,37 @@ public class LoopApp {
  `for(초기값; 조건문; 증가치;)`
 
 - `while()` 문은 자유도가 높지만 특정 횟수만큼 반복하고 싶을 땐 `for()`문을 사용하는 것이 좋다
+
+## 배열
+
+```java
+public class ArrayApp {
+
+	public static void main(String[] args) {
+
+//		String users = "gichul, sian, black";
+
+		// 빈 배열에 데이터 추가
+		String[] users = new String[3];
+
+		users[0] = "gichul";
+		users[1] = "sian";
+		users[2] = "black";
+
+		System.out.println(users[1]);
+		System.out.println(users.length);
+
+		// 데이터를 담은 배열 생성
+		int[] scores = { 10, 27, 33 };
+
+		System.out.println(scores[2]);
+		System.out.println(scores.length);
+
+	}
+
+}
+```
+- `index`는 배열의 목차, `element`는 배열의 원소를 말한다
+
+![java_loopApp_01](./images/java_loopApp_01.png)
+>출처 : 생활코딩(https://opentutorials.org/)
