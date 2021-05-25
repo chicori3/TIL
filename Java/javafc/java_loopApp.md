@@ -70,3 +70,25 @@ public class ArrayApp {
 
 ![java_loopApp_01](./images/java_loopApp_01.png)
 >출처 : 생활코딩(https://opentutorials.org/)
+
+## 반복문 + 배열
+
+```java
+public class LoopArray {
+
+	public static void main(String[] args) {
+
+		String[] users = new String[3];
+
+		users[0] = "gichul";
+		users[1] = "sian";
+		users[2] = "black";
+
+		for (int i = 0; i < users.length; i++) {
+			System.out.println("My name is " + users[i]);
+		}
+
+	}
+
+}
+```
