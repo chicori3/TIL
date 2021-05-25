@@ -1,5 +1,7 @@
 # 반복문과 배열
 
+## 반복문
+
 ```java
 public class LoopApp {
  
@@ -28,3 +30,9 @@ public class LoopApp {
  
 }
 ```
+
+#### 반복문 형태
+ `while(조건문)`        
+ `for(초기값; 조건문; 증가치;)`
+
+- `while()` 문은 자유도가 높지만 특정 횟수만큼 반복하고 싶을 땐 `for()`문을 사용하는 것이 좋다
