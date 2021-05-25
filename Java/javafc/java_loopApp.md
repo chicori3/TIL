@@ -92,3 +92,38 @@ public class LoopArray {
 
 }
 ```
+
+## 응용
+
+```java
+// Arguments = sian
+public class AuthApp3 {
+
+	public static void main(String[] args) {
+
+		String[] users = { "gichul", "sian", "black" };
+
+		String inputId = args[0];
+
+		boolean isLogged = false;
+
+		for (int i = 0; i < users.length; i++) {
+			String currentId = users[i];
+			if (currentId.equals(inputId)) {
+				currentId = true;
+				break; // 반복문 종료
+			}
+
+		}
+		System.out.println("Hi,");
+		if (isLogged) {
+			System.out.println("Master!");
+		} else {
+			System.out.println("Who are you?");
+		}
+	}
+
+}
+```
+
+- `users[]`에 존재하는 id인지 확인하고 맞다면 로그인
