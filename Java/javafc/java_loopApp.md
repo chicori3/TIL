@@ -101,17 +101,23 @@ public class AuthApp3 {
 
 	public static void main(String[] args) {
 
-		String[] users = { "gichul", "sian", "black" };
+//		String[] users = { "gichul", "sian", "black" };
+		String[][] users = {
+			{ "gichul", "1111" },
+			{ "sian", "2222" },
+			{ "black", "3333" }
+		};
 
 		String inputId = args[0];
+		String inputPass = args[1];
 
 		boolean isLogged = false;
 
 		for (int i = 0; i < users.length; i++) {
-			String currentId = users[i];
-			if (currentId.equals(inputId)) {
-				currentId = true;
-				break; // 반복문 종료
+			String[] current = users[i];
+			if (current[0].equals(inputId) && current[1].equals(inputPass)) {
+				isLogged = true;
+				break;
 			}
 
 		}
@@ -126,4 +132,5 @@ public class AuthApp3 {
 }
 ```
 
-- `users[]`에 존재하는 id인지 확인하고 맞다면 로그인
+- `users[]`에 존재하는 id인지 확인하고, pw 까지 일치하면 로그인
+- `String[][] users`는 배열 하나에 두 가지의 값을 넣는 방법이다
