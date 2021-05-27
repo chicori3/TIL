@@ -28,3 +28,48 @@ public class WhyMethod {
 1. 반복되는 코드의 양을 줄일 수 있다
 2. 코드의 의미를 파악하기 쉽다
 3. 코드 수정이 효율적이다
+
+## 메서드의 입력 값
+
+```java
+public class WhyMethod {
+
+    public static void main(String[] args) {
+
+        // 100000000 줄의 코드
+        printTwoTimesA();
+        // 100000000 줄의 코드
+        printTwoTimesB("a");
+        // 100000000 줄의 코드
+        printTwoTimesC("b", "!"); // 인자, arguments
+
+    }
+
+    public static void printTwoTimesA() {
+        System.out.println("-");
+        System.out.println("a");
+        System.out.println("a");
+    }
+
+    public static void printTwoTimesB(String text) {
+        System.out.println("?");
+        System.out.println(text);
+        System.out.println(text);
+    }
+
+    public static void printTwoTimesC(String text, String delimiter) // 매개변수, parameter
+    {
+        System.out.println(delimiter);
+        System.out.println(text);
+        System.out.println(text);
+    }
+
+}
+```
+
+다른 값을 출력하기 위해 메서드를 복사하여 값만 바꾸는 것은 비효율적이다.            
+입력 값을 받는다면 하나의 메서드로 다른 값을 얻을 수 있다.              
+`printTwoTimesB(String text)`는 이전 메소드와는 다르게 `String`인 `"a" 인자`를 받아서 `text`라는 이름의 `매개변수`로 사용한다.          
+`printTwoTimesB(String text, String delmiter)` 메서드는 두 개의 인자를 받아서 출력한다.
+
+![java_method_01.png](./images/java_method_01.png)
