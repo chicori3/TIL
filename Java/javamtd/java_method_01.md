@@ -73,3 +73,23 @@ public class WhyMethod {
 `printTwoTimesB(String text, String delmiter)` 메서드는 두 개의 인자를 받아서 출력한다.
 
 ![java_method_01.png](./images/java_method_01.png)
+
+### 메서드의 출력
+
+```java
+public static String twoTimes(String text, String delimiter) {
+        String out = "";
+        out = out + delimiter + "\n";
+        out = out + text + "\n";
+        out = out + text + "\n";
+        return out;
+}
+
+public static void main(String[] args) { 
+    System.out.println(twoTimes("a", "+"));
+}
+```
+
+메서드에서 `return`은 메서드의 실행 결과 값을 넘긴다. `return`은 메서드를 종료시키므로 뒤에 작성한 코드는 죽은 코드가 된다.         
+자바에서 메서드는 리턴값의 자료형을 구분해야 한다. `void`는 아무것도 넘기지 않음을 말한다.          
+또한 리턴값을 가진 메서드는 재사용성이 높아진다.
