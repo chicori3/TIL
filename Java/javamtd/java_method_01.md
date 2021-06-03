@@ -93,3 +93,48 @@ public static void main(String[] args) {
 메서드에서 `return`은 메서드의 실행 결과 값을 넘긴다. `return`은 메서드를 종료시키므로 뒤에 작성한 코드는 죽은 코드가 된다.         
 자바에서 메서드는 리턴값의 자료형을 구분해야 한다. `void`는 아무것도 넘기지 않음을 말한다.          
 또한 리턴값을 가진 메서드는 재사용성이 높아진다.
+
+## 메서드의 활용
+
+```java
+public class AccountingApp {
+
+    // 공급가액
+    public static double valueOfSupply = 10000.0;
+
+    // 부가가치세율
+    public static double vatRate = 0.1;
+
+    public static double getVAT() {
+        return valueOfSupply * vatRate;
+    }
+
+    public static double getTotal() {
+        return valueOfSupply + getVAT();
+    }
+
+    public static void main(String[] args) {
+
+        // 부가세
+        // double vat = valueOfSupply * vatRate;
+        // double vat = getVAT();
+
+        // 합계
+        // double total = valueOfSupply + vat;
+        // double total = getTotal();
+
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+
+    }
+
+}
+```
+
+`valueOfSupply`와 `vatRate`는 `전역변수`로써 class 내 어디서든 사용할 수 있게 해주었다.     
+
+> 메서드를 통해 얻는 효과
+1. 코드의 단순화
+2. 네이밍을 통한 코드의 의미 파악
+3. 코드의 재사용
