@@ -29,6 +29,20 @@ Java에서 PP는 `메서드를 이용해` 작은 부품을 만들고 더 큰 프
 ## 클래스, 메서드와 변수
 
 ```java
+// MyOOP.java
+public class MyOOP {
+    public static void main(String[] args) {
+        Print.delimiter = "----";
+        Print.A();        
+        Print.B();
+
+        Print.delimiter = "****";
+        Print.A();
+        Print.B();
+    }
+}
+
+// Print.java
 class Print { // 클래스
     public static String delimiter = ""; // 전역 변수
 
@@ -45,19 +59,8 @@ class Print { // 클래스
     }
 }
 
-public class MyOOP {
-    public static void main(String[] args) {
-        Print.delimiter = "----";
-        Print.A();        
-        Print.B();
-
-        Print.delimiter = "****";
-        Print.A();
-        Print.B();
-    }
-}
 ```
 
 연관성이 있는 반복되는 코드를 그룹핑하여 `메서드`로 만든다.    
 반복되는 값은 `변수`로 설정하며 `메서드` 내부에서 정의된 변수는 메서드 밖에서 사용할 수 가 없다. 때문에 `전역 변수`로 선언하면 관리가 편하다.   
-`클래스`는 이러한 메서드와 변수를 그룹핑한 것으로 훨씬 간결하고 좋은 코드를 짤 수 있게 된다.
+`클래스`는 이러한 메서드와 변수를 그룹핑한 것으로 훨씬 간결하고 좋은 코드를 짤 수 있게 된다. 또한 외부에서도 사용할 수 있어서 따로 만들어 호출하여 사용할 수 있다.
