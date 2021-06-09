@@ -24,3 +24,40 @@ Java에서 PP는 `메서드를 이용해` 작은 부품을 만들고 더 큰 프
     3. 다른 프로그램에서 재사용이 가능하다      
     4. 속도가 상대적으로 느리고 많은 양의 메모리를 사용하는 경향이 있다     
     5. 설계 과정에 시간이 많이 투자된다     
+
+
+## 클래스, 메서드와 변수
+
+```java
+class Print { // 클래스
+    public static String delimiter = ""; // 전역 변수
+
+    public static void A() { // 메서드
+        System.out.println(delimiter);
+        System.out.println("A");
+        System.out.println("A");
+    }
+
+    public static void B() {
+        System.out.println(delimiter);
+        System.out.println("B");
+        System.out.println("B");
+    }
+}
+
+public class MyOOP {
+    public static void main(String[] args) {
+        Print.delimiter = "----";
+        Print.A();        
+        Print.B();
+
+        Print.delimiter = "****";
+        Print.A();
+        Print.B();
+    }
+}
+```
+
+연관성이 있는 반복되는 코드를 그룹핑하여 `메서드`로 만든다.    
+반복되는 값은 `변수`로 설정하며 `메서드` 내부에서 정의된 변수는 메서드 밖에서 사용할 수 가 없다. 때문에 `전역 변수`로 선언하면 관리가 편하다.   
+`클래스`는 이러한 메서드와 변수를 그룹핑한 것으로 훨씬 간결하고 좋은 코드를 짤 수 있게 된다.
