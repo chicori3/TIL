@@ -80,7 +80,7 @@
 - [Java 반복문과 배열](./Java/javafc/java_loopApp.md)
 
 ### Java 메서드
--[Java 메서드의 기본 형식](./Java/javamtd/java_method_01.md)
+- [Java 메서드의 기본 형식](./Java/javamtd/java_method_01.md)
 
 ### Java OOP
--[Java 객체 지향 프로그래밍](./Java/javaoop/java_oop.md)
+- [Java 객체 지향 프로그래밍](./Java/javaoop/java_oop.md)

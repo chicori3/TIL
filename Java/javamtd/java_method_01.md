@@ -69,10 +69,11 @@ public class WhyMethod {
 
 다른 값을 출력하기 위해 메서드를 복사하여 값만 바꾸는 것은 비효율적이다.            
 입력 값을 받는다면 하나의 메서드로 다른 값을 얻을 수 있다.              
-`printTwoTimesB(String text)`는 이전 메소드와는 다르게 `String`인 `"a" 인자`를 받아서 `text`라는 이름의 `매개변수`로 사용한다.          
+`printTwoTimesB(String text)`는 이전 메소드와는 다르게 String인 "a" 인자를 받아서 text라는 이름의 매개변수로 사용한다.          
 `printTwoTimesB(String text, String delmiter)` 메서드는 두 개의 인자를 받아서 출력한다.
 
 ![java_method_01.png](./images/java_method_01.png)
+>출처 : 생활코딩(https://opentutorials.org/)
 
 ### 메서드의 출력
 
@@ -90,7 +91,7 @@ public static void main(String[] args) {
 }
 ```
 
-메서드에서 `return`은 메서드의 실행 결과 값을 넘긴다. `return`은 메서드를 종료시키므로 뒤에 작성한 코드는 죽은 코드가 된다.         
+메서드에서 `return`은 메서드의 실행 결과 값을 넘긴다. return은 메서드를 종료시키므로 뒤에 작성한 코드는 죽은 코드가 된다.         
 자바에서 메서드는 리턴값의 자료형을 구분해야 한다. `void`는 아무것도 넘기지 않음을 말한다.          
 또한 리턴값을 가진 메서드는 재사용성이 높아진다.
 
@@ -132,7 +133,7 @@ public class AccountingApp {
 }
 ```
 
-`valueOfSupply`와 `vatRate`는 `전역변수`로써 class 내 어디서든 사용할 수 있게 해주었다.     
+`valueOfSupply`와 `vatRate`는 전역변수로써 class 내 어디서든 사용할 수 있게 해주었다.     
 
 > 메서드를 통해 얻는 효과
 1. 코드의 단순화

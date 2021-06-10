@@ -66,7 +66,7 @@ public class ArrayApp {
 
 }
 ```
-- `index`는 배열의 목차, `element`는 배열의 원소를 말한다
+- index는 배열의 목차, element는 배열의 원소를 말한다
 
 ![java_loopApp_01](./images/java_loopApp_01.png)
 >출처 : 생활코딩(https://opentutorials.org/)
