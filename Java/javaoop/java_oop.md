@@ -120,3 +120,61 @@ class Print { // 클래스
 인스턴스를 사용하기 전에 `static`은 항상 값이 변하지 않는 경우에 사용하는 데 지금은 `delimeter` 변수의 값을 변경할테니 지워준다.     
 `Print p1 = new Print();`는 Print 데이터 타입의 Print 클래스를 p1 객체에 담는다라고 할 수 있다.         
 p1과 p2의 delimeter 변수값을 설정함으로써 같은 클래스를 돌려막지 않아도 된다.
+
+## static
+
+```java
+class Foo {
+    public static String classVar = "I class var"; // static 변수 (클래스 필드)
+    public String instanceVar = "I instance var"; // non-static 변수 (인스턴스 필드)
+
+    public static void classMethod() { // 클래스의 static 메서드가 클래스의 변수에 접근이 가능할까?
+        System.out.println(classVar); // static 메서드는 static 변수에 접근 가능
+//      System.out.println(instanceVar); // 인스턴스 변수에는 접근 불가능
+    }
+
+    public void instanceMethod() { // 인스턴스 메서드는 클래스의 변수에 접근이 가능할까?
+        System.out.println(classVar); // 인스턴스 메서드는 static 변수에 접근 가능
+        System.out.println(instanceVar); // 인스턴스 변수에도 접근 가능
+    }
+}
+
+public class StaticApp {
+
+    public static void main(String[] args) {
+        System.out.println(Foo.classVar); // Foo 클래스의 static 변수에 접근 가능
+//      System.out.println(Foo.instanceVar); // 인스턴스 변수에 접근 불가능
+        Foo.classMethod(); // static 메서드에 접근 가능
+//      Foo.instanceMethod(); // 인스턴스 메서드에 접근 불가능
+
+        // Foo f1, f2 인스턴스 생성
+        Foo f1 = new Foo(); 
+        Foo f2 = new Foo();
+      
+        System.out.println(f1.classVar); // I class var
+        System.out.println(f1.instanceVar); // I instance var
+      
+        f1.classVar = "changed by f1";
+        System.out.println(Foo.classVar); // changed by f1
+        System.out.println(f2.classVar); // changed by f1
+      
+        f1.instanceVar = "changed by f1";
+        System.out.println(f1.instanceVar); // changed by f1
+        System.out.println(f2.instanceVar); // I instance var
+    }
+
+}
+```
+
+![java_oop_03](./images/java_oop_03.png)
+
+**static** 키워드로 변수나 메서드 앞에 붙여 static 변수와 메서드를 만들 수 있다. 클래스 멤버라고도 하는 데, 모든 객체가 메모리를 공유하는 특징이 있다.     
+
+```java
+static int num = 0; // static 변수 선언
+public static void static_method(){} // static 리턴 타입 메소드 {}
+```
+
+static으로 선언된 변수와 메서드는 같은 메모리를 가리키므로 `Foo.classVar`와 인스턴스 `f1.classVar`, `f2.classVar`는 같은 메모리를 사용한다.    
+`f1.classVar = "changed by f1";` 로 static 변수값을 변경하면 Foo와 f1, f2의 classVar가 다 똑같은 변수값을 가리키게 된다.        
+하지만 인스턴스는 각 다른 객체이므로 `f1.instanceVar = "changed by f1";` 를 작성하면 f1의 instanceVar 값만 바뀌게 된다.
