@@ -178,3 +178,48 @@ public static void static_method(){} // static 리턴 타입 메소드 {}
 static으로 선언된 변수와 메서드는 같은 메모리를 가리키므로 `Foo.classVar`와 인스턴스 `f1.classVar`, `f2.classVar`는 같은 메모리를 사용한다.    
 `f1.classVar = "changed by f1";` 로 static 변수값을 변경하면 Foo와 f1, f2의 classVar가 다 똑같은 변수값을 가리키게 된다.        
 하지만 인스턴스는 각 다른 객체이므로 `f1.instanceVar = "changed by f1";` 를 작성하면 f1의 instanceVar 값만 바뀌게 된다.
+
+## 생성자와 this
+
+```java
+// MyOOP.java
+public class MyOOP {
+    public static void main(String[] args) {
+        Print p1 = new Print("----"); // 인자
+        p1.A();        
+        p1.B();
+
+        Print p2 = new Print("****");
+        p2.A();
+        p2.B();
+    }
+}
+
+// Print.java
+class Print { // 클래스
+    public String delimiter = ""; // 인스턴스 변수
+    public Print(String delimiter){
+        this.delimiter = delimiter; // this.delimiter = 인자 delimiter
+    }
+    public void A() { // 메서드
+        System.out.println(this.delimiter);
+        System.out.println("A");
+        System.out.println("A");
+    }
+
+    public void B() {
+        System.out.println(this.delimiter);
+        System.out.println("B");
+        System.out.println("B");
+    }
+}
+```
+
+> 생성자(Consutructor) 규칙
+>> 1. 클래스명과 메서드명이 동일하다
+>> 2. 리턴타입을 정의하지 않는다
+
+생성자는 new 키워드가 사용될 때 호출된다. 생성자를 사용할 때 얻는 이득은 객체 생성 시에 필수적인 행동을 제어할 수 있다는 것이다.        
+`this` 키워드는 인스턴스의 변수명을 가리키는데 `this`를 사용하지 않는다면 인자로 들어온 `delimiter`를 가리키게 된다.
+
+생성자의 입력 항목이 없고 생성자 내부에 아무 내용이 없으면 **default 생성자**라고 부른다. 만약 클래스에 생성자가 하나도 없다면 자동으로 default 생성자가 추가되지만, 사용자가 작성한 생성자가 하나라도 구현되어 있다면 컴파일러는 default 생성자를 추가하지 않는다.
