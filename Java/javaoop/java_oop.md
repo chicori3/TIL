@@ -264,6 +264,47 @@ public class AccountingApp {
         System.out.println("Total : " + Accounting.getTotal());
     }
 }
-```
 
+// 인스턴스 활용
+class Accounting {
+    public double valueOfSupply;
+    public static double vatRate = 0.1;
+
+    public Accounting(double valueOfSupply) {
+        this.valueOfSupply = valueOfSupply;
+    }
+
+    public double getVAT() {
+        return valueOfSupply * vatRate;
+    }
+
+    public double getTotal() {
+        return valueOfSupply + getVAT();
+    }
+}
+
+public class AccountingApp {
+    public static void main(String[] args) {
+        Accounting a1 = new Accounting(10000.0);
+
+        Accounting a2 = new Accounting(20000.0);
+
+        System.out.println("Value of supply : " + a1.valueOfSupply);
+        System.out.println("Value of supply : " + a2.valueOfSupply);
+
+        System.out.println("VAT : " + a1.getVAT());
+        System.out.println("VAT : " + a2.getVAT());
+
+        System.out.println("Total : " + a1.getTotal());
+        System.out.println("Total : " + a2.getTotal());
+
+    }
+}
+```
+#### 1. 클래스 활용
+---
 기존에 메서드만 이용한 코드보다 클래스를 활용하여 더 정리정돈된 코드를 작성할 수 있다. 예제와 달리 코드가 훨씬 많을 때 `Accounting`처럼 서로 연관된 코드들을 클래스로 그룹화하면 `Accounting.foo` 등으로 보기 쉽게 구분하여 작업할 수 있게 된다.
+
+#### 2. 인스턴스 활용
+---
+만약 `valueOfSupply`의 값이 다르고 계산의 순서가 달라지면 클래스만 써서는 코드를 정리할 수 없다. 같은 작업이지만 다른 값을 사용해야할 때 인스턴스를 활용하면 쉽게 정리할 수 있다. `Accounting` 클래스를 각 `a1`, `a2`로 인스턴스를 만들고 인자로 `valueOfSupply` 값을 받아오게 설정하여 정리된 모습이다.
