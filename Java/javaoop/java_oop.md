@@ -223,3 +223,47 @@ class Print { // 클래스
 `this` 키워드는 인스턴스의 변수명을 가리키는데 `this`를 사용하지 않는다면 인자로 들어온 `delimiter`를 가리키게 된다.
 
 생성자의 입력 항목이 없고 생성자 내부에 아무 내용이 없으면 **default 생성자**라고 부른다. 만약 클래스에 생성자가 하나도 없다면 자동으로 default 생성자가 추가되지만, 사용자가 작성한 생성자가 하나라도 구현되어 있다면 컴파일러는 default 생성자를 추가하지 않는다.
+
+## 클래스와 인스턴스 활용
+
+```java
+// 기존 코드
+public class AccountingApp {
+    public static double valueOfSupply = 10000.0;
+    public static double vatRate = 0.1;
+    public static double getVAT() {
+        return valueOfSupply * vatRate;
+    }  
+    public static double getTotal() {
+        return valueOfSupply + getVAT();
+    }
+    public static void main(String[] args) {
+ 
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+    }
+}
+// 클래스 활용
+class Accounting {
+    public static double valueOfSupply;
+    public static double vatRate = 0.1;
+    public static double getVAT() {
+        return valueOfSupply * vatRate;
+    }
+    public static double getTotal() {
+        return valueOfSupply + getVAT();
+    }
+}
+
+public class AccountingApp {
+    public static void main(String[] args) {
+        Accounting.valueOfSupply = 10000.0;
+        System.out.println("Value of supply : " + Accounting.valueOfSupply);
+        System.out.println("VAT : " + Accounting.getVAT());
+        System.out.println("Total : " + Accounting.getTotal());
+    }
+}
+```
+
+기존에 메서드만 이용한 코드보다 클래스를 활용하여 더 정리정돈된 코드를 작성할 수 있다. 예제와 달리 코드가 훨씬 많을 때 `Accounting`처럼 서로 연관된 코드들을 클래스로 그룹화하면 `Accounting.foo` 등으로 보기 쉽게 구분하여 작업할 수 있게 된다.
