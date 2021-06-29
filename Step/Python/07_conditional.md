@@ -143,6 +143,6 @@ else:
     msg = 'a is not 1'
 print(msg)              # a is 1
 
-msg2 = "a is 1" if (a == 1) else "a is not 1"
-print(msg2)             #
+msg2 = "a is 1" if a == 1 else "a is not 1"
+print(msg2)             # a is not 1
 ```
