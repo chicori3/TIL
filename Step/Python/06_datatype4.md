@@ -108,7 +108,7 @@ print(a)                            # Today is Monday, Tomorrow is Tuesday
 ```
 
 6. 자리 표기 가능
-    >   f로 타입을 실수로 변경
+    > f로 타입을 실수로 변경
     > :0.숫자로 소수점 자리 수 변경
     > :숫자로 공백 출력 가능
 
