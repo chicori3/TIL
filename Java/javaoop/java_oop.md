@@ -211,7 +211,7 @@ public class MyOOP {
 // Print.java
 class Print { // 클래스
     public String delimiter = ""; // 인스턴스 변수
-    public Print(String delimiter){
+    public Print(String delimiter){ // 생성자 함수
         this.delimiter = delimiter; // this.delimiter = 인자 delimiter
     }
     public void A() { // 메서드
