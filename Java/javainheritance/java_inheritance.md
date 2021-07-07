@@ -128,3 +128,40 @@ public class InheritanceApp {
 - super() : 부모 클래스의 생성자를 호출할 때 사용
     > 기본적으로 생략해도 super가 정의되어 있음
 
+## 상속과 생성자
+
+```java
+class Cal{
+    int v1,v2;
+    Cal(int v1, int v2){                // 생성자
+        System.out.println("Cal init!!");
+        this.v1 = v1; this.v2 = v2;
+    }
+    public int sum(){
+        return this.v1+v2;
+    }
+}
+class Cal3 extends Cal{
+    Cal3(int v1, int v2) {
+        super(v1, v2);                  // 부모 클래스의 생성자
+        System.out.println("Cal3 init!!");
+    }
+    public int minus(){
+        return this.v1-v2;
+    }
+}
+public class InheritanceApp {
+    public static void main(String[] args) {
+        Cal c = new Cal(2,1);
+        Cal3 c3 = new Cal3(2, 1);
+        System.out.println(c3.sum());   // 3
+        System.out.println(c3.minus()); // 1
+    }
+}
+```
+
+부모 클래스에 생성자가 있으면 자식 클래스는 반드시 생성자를 상속하여야 한다.    
+`super(v1, v2);` 는 부모 클래스의 생성자 함수를 실행시킨다.     
+그 결과 자식 클래스인 `Cal3`을 호출하면 우선 부모 클래스 `Cal` 생성자가 먼저 호출되고 `Cal3`이 호출되는 것을 확인할 수 있다.    
+`minus()` 메서드는 자신이 가지고 있으니까 실행이 되고, `sum()`은 자신에게 정의되지 않았기 때문에 부모 클래스의 메서드를 실행시킨다.
+
