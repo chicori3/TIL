@@ -80,3 +80,51 @@ public class InheritanceApp {
 4. 부모 클래스의 메서드보다 더 큰 범위의 예외를 선언할 수 없다
 
 **Overloading**은 새로운 메서드를 정의하는 것으로 상속과는 관계 없다.
+
+## this & super
+
+```java
+class Cal {
+    public int sum(int v1, int v2) {
+        return v1 + v2;
+    }
+    // Overloading
+     public int sum(int v1, int v2, int v3) {
+        return this.sum(v1, v2) + v3;
+    }
+}
+
+class Cal2 extends Cal { // 상속
+    public int minus(int v1, int v2) {
+        return v1 - v2;
+    }
+    // Overriding
+     public int sum(int v1, int v2) {
+        System.out.println("Cal2!!")
+        return super.sum(v1 + v2);
+    }
+}
+
+
+public class InheritanceApp {
+
+    public static void main(String[] args) {
+        Cal2 c = new Cal2();
+        System.out.println(c.sum(2, 1));
+
+        System.out.println(c.sum(2,1,1));
+
+        System.out.println(c.minus(2, 1));
+
+    }
+
+}
+```
+
+- this : 현재 클래스의 인스턴스
+
+- this() : 현재 클래스에 정의된 생성자를 호출할 때 사용
+- super : 부모 클래스의 멤버
+- super() : 부모 클래스의 생성자를 호출할 때 사용
+    > 기본적으로 생략해도 super가 정의되어 있음
+
