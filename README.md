@@ -73,12 +73,13 @@
 - [Java Structure](./Java/java1/java_structure.md)
 - [Java MyApp](./Java/java1/java_myApp.md)
 
-- [Java Boolean](./Java/javafc/java_boolean.md)
-- [Java 조건문](./Java/javafc/java_if.md)
-- [Java 반복문과 배열](./Java/javafc/java_loopApp.md)
+- [Java Boolean](./Java/java1/java_boolean.md)
+- [Java 조건문](./Java/java1/java_if.md)
+- [Java 반복문과 배열](./Java/java1/java_loopApp.md)
 
-- [Java 메서드의 기본 형식](./Java/javamtd/java_method_01.md)
+- [Java 메서드의 기본 형식](./Java/java1/java_method_01.md)
 
-- [Java 객체 지향 프로그래밍](./Java/javaoop/java_oop.md)
+- [Java 객체 지향 프로그래밍](./Java/java1/java_oop.md)
 
-- [Java 상속](./Java/javainheritance/java_inheritance.md)
+- [Java 상속](./Java/java1/java_inheritance.md)
+- [Java 접근 제어자](./Java/java1/java_accessmodifier.md)
