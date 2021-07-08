@@ -57,12 +57,23 @@ System.out.println((char)i2);	// 'A' 명시적 형변환
 - 명시적 형변환 : 큰 메모리 타입을 작은 메모리 타입으로 직접 변환시키는 것으로 **데이터 소실**이 생긴다.
 
 
-### 2. 참조 타입
+### 2. 참조 타입과 참조 변수
 
 ```java
 String name = "2sian";		// 문자열 리터럴
 int[] arr = new arr[3];		// int 값을 가지는 3자리 배열 
-class Test {}				// 클래스
+
+class Car {					// 클래스
+	int wheel = 4;			// 인스턴스 변수
+}
+
+Car a = new Car();			// Car 타입의 a 인스턴스 (객체) 생성
+a.wheel = 6;				// Car a의 변수 값을 변경
+Car b;						// new 할당자가 없어도 Car 참조할 수 있음
+b = a;						// Car b가 Car a를 참조
+
+System.out.println(a.wheel);// 6
+System.out.println(b.wheel);// 6
 ```
 
 **참조 타입**은 객체의 주소를 참조하는 타입으로 **배열, 열거, 클래스, 인터페이스 타입**등 기본 타입을 제외한 모든 타입을 말한다.	
