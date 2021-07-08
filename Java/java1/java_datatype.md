@@ -1,81 +1,51 @@
-# Datatype and Operation
+# Java 데이터 타입과 메모리 영역
+
+## 1. Java 데이터 타입의 분류
+
+프로그램은 자료구조(데이터)와 알고리즘의 결합으로 이루어진다.	
+Java의 데이터 타입은 **기본 타입**과 **참조 타입**으로 분류된다.
+
+### 1. 기본 타입
 
 ```java
-public class Datatype
-{
-	public static void main(String[] args)
-	{
-		System.out.println(6); // Number
-		System.out.println("6"); // String
+// 기본 데이터 타입
+byte b = 1;
+char c = 'a'					// 한 글자
+int i = 1000;					// 정수 리터럴
 
-		System.out.println(6 + 6); // 12
-		System.out.println("6" + "6"); // 66
-		System.out.println("6" + 6); // 66
+float f = 3.14f;
+double	d = 3.141592;			// 실수 리터럴
 
-		System.out.println(6 * 6); // 36
-//		System.out.println("6" * "6");
+// 형변환
+int i2 = 'A';			
+System.out.println(i2); 		// 97 (아스키코드)
+System.out.println((char)i2);	// 'A'
 
-		System.out.println("1111".length());
-//		System.out.println(1111.length());
-
-		System.out.println("Hello World"); // String
-		System.out.println('H'); // Character
-	}
-}
+// Overflow
+int i3 = (int)1000000000000l;
+System.out.println(i3);			// -727379968 
 ```
 
-- 숫자를 `"`로 감싸면 `String` 타입이 된다.
-- JS와 달리 `'`로 감싸면 `Char` 타입이 된다.
-- 데이터 타입에 따라 메소드를 사용한다.
+1. 정수
+	- byte : 1byte 8bit
+	- char : 2byte 16bit
+	- short : 2byte 16bit
+	- **int** : 4byte 32bit
+		> 정수 기본값
+	- long : 8byte 64bit
 
-```java
-public class Number
-{
+2. 실수
+	- float : 4byte 16bit
+	- **double** : 8byte 64bit
+		> 실수 기본값
 
-	public static void main(String[] args)
-	{
-		System.out.println(6 + 2); // 8
-		System.out.println(6 - 2); // 4
-		System.out.println(6 * 2); // 12
-		System.out.println(6 / 2); // 3
+3. 논리
+	- boolean : 1byte 8bit
+		> true, false
 
-		System.out.println(Math.PI); // 3.1415...
-		System.out.println(Math.floor(Math.PI)); // 3.0
-		System.out.println(Math.ceil(Math.PI)); // 4.0
-	}
+**기본 데이터 타입이란 정수, 실수, 문자, 논리 리터럴을 직접 저장하는 타입을 말한다.**
+메모리는 최소 기억 단위인 **bit**, 8개 bit를 묶은 **byte**가 있다.	
+**오버플로우 현상**은 데이터 타입의 값의 범위를 초과할 때 발생하는 현상으로 엉뚱한 값이 변수에 들어가게 된다.
 
-}
-```
+### 2. 참조 타입
 
-- **Math**는 수학에서 자주 사용하는 상수들과 함수들을 미리 구현해 놓은 클래스이다.
-- Math 클래스의 모든 메소드는 **클래스 메소드(static method)**이므로, 객체를 생성하지 않고도 바로 사용할 수 있다.
-
-```java
-public class StringApp
-{
-
-	public static void main(String[] args)
-	{
-		// Character & String
-		System.out.println("Hello World"); // String
-		System.out.println("H"); // String
-		System.out.println('H'); // Character
-
-		System.out.println("Hello " + "World"); // Hello World
-
-		// new line
-		System.out.println("Hello \nWorld"); // Hello / World
-
-		// escape
-		System.out.println("Hello \"World\""); // Hello "World"
-
-		System.out.println("Hello World".length()); // 11
-		System.out.println("Hello World".replace("Hello", "Bye")); // Bye World
-	}
-
-}
-```
-
-- `""`와 `''`의 차이가 있으니 유의할 것
-- `\n`은 줄바꿈의 기능이 있다
-- String 안에서 따옴표를 쓰고 싶을 땐 `\"string/"`처럼 사용한다
