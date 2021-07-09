@@ -68,6 +68,7 @@
 ### Java 1
 - [Java Feature](./Java/java1/java_feature.md)
 - [Java 데이터 타입과 메모리 영역](./Java/java1/java_datatype.md)
+- [Java 연산자](./Java/java1/java_operator.md)
 - [Java Variable](./Java/java1/java_variable.md)
 - [Java Practice](./Java/java1/java_prac.md)
 - [Java Structure](./Java/java1/java_structure.md)
