@@ -24,6 +24,10 @@
 - [07-1. 함수형 프로그래밍](./Javascript/07_Javascript_fp_1.md)
 - [07-2. 함수형 프로그래밍](./Javascript/07_Javascript_fp_2.md)
 
+## TypeScript
+
+- [TypeScript 개요](./Typescript/ts_Summary.md)
+
 ## Node.js
 
 > [VELOPERT.LOG](https://velopert.com/node-js-tutorials)
@@ -54,12 +58,6 @@
 
 - [Firebase 개요](./Firebase/fb_Summary.md)
 
-
-## TypeScript
-
-- [TypeScript 개요](./Typescript/ts_Summary.md)
-
-
 ## Java
        
 [JAVA 문서](https://docs.oracle.com/javase/8/docs/api/)
@@ -84,3 +82,7 @@
 
 - [Java 상속](./Java/java1/java_inheritance.md)
 - [Java 접근 제어자](./Java/java1/java_accessmodifier.md)
+
+## 백준
+
+- [9498: 시험 성적](./Baekjoon/9898.md)
