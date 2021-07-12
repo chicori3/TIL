@@ -63,11 +63,11 @@
 [JAVA 문서](https://docs.oracle.com/javase/8/docs/api/)
 > [생활코딩](https://opentutorials.org/) 
 
-### Java 1
 - [Java Feature](./Java/java1/java_feature.md)
 - [Java 데이터 타입과 메모리 영역](./Java/java1/java_datatype.md)
 - [Java 연산자](./Java/java1/java_operator.md)
 - [Java Variable](./Java/java1/java_variable.md)
+- [Java 입력과 출력](./Java/java1/java_inoutput.md)
 - [Java Practice](./Java/java1/java_prac.md)
 - [Java Structure](./Java/java1/java_structure.md)
 - [Java MyApp](./Java/java1/java_myApp.md)
