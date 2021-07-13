@@ -19,7 +19,7 @@ public class AccessDemo1{
     public static void main(String[] args){
         A a = new A();
         System.out.println(a.y());
-        System.out.println(a.z());      // 메서드 z에 접근 불가
+        System.out.println(a.z()); // 메서드 z에 접근 불가
         System.out.println(a.x());        
     }
 }
@@ -30,7 +30,7 @@ public class AccessDemo1{
 ```java
 public class Everywhere {
     public String var = "누구든지 허용"; // public 필드
-    public String getVar() {             // public 메소드
+    public String getVar() { // public 메소드
         return this.var;
     }
 }
@@ -44,7 +44,7 @@ public class Everywhere {
 ```java
 public class SameClass {
     private String var = "같은 클래스만 허용"; // private 필드
-    private String getVar() {                  // private 메소드
+    private String getVar() { // private 메소드
         return this.var;
     }
 }
@@ -69,7 +69,7 @@ public class SameClass {
     String var = "다른 패키지는 접근 불가"; // default 필드
     public static void main(String[] args) {
         SamePackage sp = new SamePackage();
-        System.out.println(sp.sameVar);     // 같은 패키지는 허용
+        System.out.println(sp.sameVar); // 같은 패키지는 허용
     }
 }
 ```
