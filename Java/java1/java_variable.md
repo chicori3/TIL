@@ -1,5 +1,3 @@
-# Java 변수
-
 ### 변수
 
 **하나의 값을 저장**하는 메모리 공간
@@ -49,7 +47,6 @@ System.out.println(i3); // -727379968
 
 1. 정수 리터럴
 	- byte : 1byte 8bit
-	- char : 2byte 16bit
 	- short : 2byte 16bit
 	- **int** : 4byte 32bit
 	- long : 8byte 64bit
@@ -58,10 +55,26 @@ System.out.println(i3); // -727379968
 	- float : 4byte 16bit
 	- **double** : 8byte 64bit
 
-3. 논리 리터럴
+3. 문자 리터럴
+	- char : 2byte 16bit
+
+4. 논리 리터럴
 	- boolean : 1byte 8bit
 
+- 부호가 있는 정수의 범위 : -2ⁿ - ¹ ~ 2ⁿ - ¹
+- 부호가 없는 정수의 범위 : 0 ~ 2ⁿ - ¹
+
 **오버플로우 현상**은 데이터 타입의 값의 범위를 초과할 때 발생하는 현상으로 엉뚱한 값이 변수에 들어가게 된다.
+
+#### 참조 타입
+
+```java
+String s = "ABC"; // s라는 주소에 "ABC" 저장
+Date today = new Date(); // today라는 주소에 새로운 객체 생성
+```
+
+기본형을 제외한 나머지 타입 (System, String 등)
+실제 값을 저장하는 대신 **메모리 주소를 저장** (4byte, 8byte)
 
 #### 타입 변환
 
@@ -125,3 +138,24 @@ y = tmp; // tmp의 값을 y에 저장
 ```
 
 두 변수의 값을 교환하기 위해서는 하나의 빈 변수가 필요하다
+
+### 타입 간의 변환
+
+다른 타입 간의 연산은 피연산자들을 **먼저 모두 같은 타입으로 만든 후에 수행된다**   
+메모리에 할당받은 바이트 크기가 **작은 타입에서 큰 타입으로의 타입 변환은 생략 가능**   
+하지만 큰 타입에서 작은 타입으로의 변환은 **데이터의 손실 발생**
+
+```java
+// 1. 묵시적 형변환 (자동 타입 변환)
+
+double num1 = 10;
+int num2 = 3.14; // 데이터 손실
+double num3 = 7.0f + 3.14;
+int num4 = 9876543210L; // int 범위 밖
+float num5 = 3.14; // type missmatch
+
+// 2. 명시적 형변환 (강제 타입 변환)
+
+int num = 1, num 2 = 4;
+dobule result1 = (double) num1 / num2;
+```
