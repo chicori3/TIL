@@ -146,3 +146,59 @@ for (int i = 0; i < 6; i++) {
 	System.out.printf("ball[%d]=%d\n", i, ball[i]);
 }
 ```
+
+### 다차원 배열
+
+#### 2차원 배열
+```java
+// 선언
+int[][] score = new int[4][3]; // 4행 3열의 2차원 배열
+
+// 초기화
+int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 } };
+
+// 인덱스
+score[1][2]; // 2행 3열의 인덱스
+```
+
+**1차원 배열의 배열**
+테이블 형태의 데이터를 저장하기 위한 배열   
+
+### Arrays로 배열 다루기
+
+```java
+// 배열의 출력
+int[] arr = {0, 1, 2, 3};
+int[][] arr2d = {{11, 12}, {21, 22}};
+
+System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3]
+System.out.println(Arrays.deepToString(arr2d)); // [[11, 12], [21, 22]]
+
+// 배열의 비교
+String[][] str2d = new String[][] { { "aa", "bb" }, { "AA", "BB" } };
+String[][] str2d2 = new String[][] { { "aa", "bb" }, { "AA", "BB" } };
+		
+System.out.println(Arrays.equals(str2d, str2d2)); // false
+System.out.println(Arrays.deepEquals(str2d, str2d2)); // true
+
+// 배열의 복사
+int[] arr = { 0, 1, 2, 3 };
+int[] arr2 = Arrays.copyOf(arr, arr.length); // arr의 길이만큼 복사
+int[] arr3 = Arrays.copyOfRange(arr, 2, 4); // arr의 index 2이상 4미만까지 복사
+
+// 배열의 정렬
+int[] arr = { 3, 2, 0, 1, 4 };
+Arrays.sort(arr); // 오름차순 정렬
+System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+```
+
+
+
+
+
+
+
+
+
+
+
